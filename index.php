@@ -37,6 +37,18 @@ if(isset($_GET['action'])) {
 			aventure();
 			break;
 
+		case 'mission' :
+			mission();
+			break;
+
+		case 'aide' :
+			aide();
+			break;
+			
+		case 'personnage' :
+			personnage();
+			break;
+
 	}
 }
 else{

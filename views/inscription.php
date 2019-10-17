@@ -30,7 +30,7 @@
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
+								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 							</div>
 							<input class="form-control" type="email" placeholder="Email" name="mail" required>
 						</div>

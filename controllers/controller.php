@@ -24,5 +24,14 @@ function contact() {
 	require('views/contact.php');
 }
 function aventure() {
-	require('views/contact.php');
+	require('views/aventure.php');
+}
+function mission() {
+	require('views/mission.php');
+}
+function aide() {
+	require('views/aide.php');
+}
+function personnage() {
+	require('views/personnage.php');
 }

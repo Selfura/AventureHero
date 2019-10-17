@@ -1,3 +1,15 @@
+			/**********************************
+						Font
+			************************************/
+
+@font-face {
+  font-family: 'BD_Cartoon';
+  font-style: normal;
+  font-weight: normal;
+  src: url('Ressources/fonts/BD_Cartoon_Shout.ttf'); /* IE9 Compat Modes */
+}
+
+
 body {
 	
 	background: url("public/images/Background.jpg") no-repeat center center fixed; 
@@ -499,3 +511,86 @@ a {
 			/**********************************
 						Contact
 			************************************/
+
+
+			/**********************************
+						Aventure
+			************************************/
+.aventure {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.prologue {
+
+	text-align: center;
+	margin: 3em 0 3em 0;
+
+}
+
+.chapitres {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	margin: 3em 0 3em 0;
+
+}
+.img_chap {
+	cursor: pointer;
+	position: relative;
+	display: block;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	font-family: BD_Cartoon;
+}
+
+.img_chap .portfolio-item-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    background-color: rgba(243, 204, 18, 0.5);
+    height: 400px;
+    width: 250px;
+}
+.img_chap .portfolio-item-caption:hover {
+	opacity: 1;
+}
+
+			/**********************************
+						mission
+			************************************/
+
+.img_mission {
+	cursor: pointer;
+	position: relative;
+	display: block;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	font-family: BD_Cartoon;
+	margin-top: 1.5em;
+}
+.missions {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.img_mission .mission-item-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    background-color: rgba(243, 204, 18, 0.5);
+    height: 100px;
+    width: 500px;
+}
+.img_mission .mission-item-caption:hover {
+	opacity: 1;
+}

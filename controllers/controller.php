@@ -38,3 +38,6 @@ function personnage() {
 function mission() {
 	require('views/mission.php');
 }
+function adm() {
+	require('views/backend/adm.php');
+}

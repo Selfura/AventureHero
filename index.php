@@ -53,6 +53,10 @@ if(isset($_GET['action'])) {
 			personnage();
 			break;
 
+		case 'adm' :
+			adm();
+			break;
+
 	}
 }
 else{

@@ -12,6 +12,8 @@
 						<li><a href="index.php?action=news">News</a></li>
 						<li><a href="index.php?action=aide">Aide</a></li>
 						<li><a href="index.php?action=contact">Contact</a></li>
+						<li><a href="index.php?action=adm">Administration</a></li>
+
 					</ul>
 				</div>
 			</div>

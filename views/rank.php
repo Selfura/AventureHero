@@ -21,7 +21,7 @@
 		            <tr>
 		            	<td>
 			              	<div>
-								<img class="img-center img-fluid" src="public/images/heros/avatar1.jpg">
+								<img class="img-center img-fluid avatar" src="public/images/heros/avatar1.jpg">
 							</div>
 						</td>
 		            	<td>Mystique/Force/Esprit/Elementaire</td>

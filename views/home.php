@@ -5,7 +5,7 @@
 <section class="d-flex justify-content-center">
 	<div class="home_card container">
 		<div class="news_co">
-			<div class=" home_news">
+			<div>
 				<h1 class="text-center"> LES NEWS DE HERO AVENTURE</h1>
 				<p> Ici il y aura une news. La dernière News du site ! <br>
 				Pour l'instant toutefois il n'y a pas grand chose était donné que le site est en construction. La phase de test n'est même pas encore commencée.

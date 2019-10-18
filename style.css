@@ -594,3 +594,19 @@ a {
 .img_mission .mission-item-caption:hover {
 	opacity: 1;
 }
+
+			/**********************************
+						Personnage
+			************************************/
+.avatar {
+	border: 2px solid black;
+	border-radius: 0.5rem;
+}
+
+.char_char {
+	margin-top: 1em;
+}
+
+.BD-nom {
+	font-family: BD_Cartoon;
+}

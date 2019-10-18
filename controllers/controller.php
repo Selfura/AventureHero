@@ -26,12 +26,15 @@ function contact() {
 function aventure() {
 	require('views/aventure.php');
 }
-function mission() {
-	require('views/mission.php');
+function missions() {
+	require('views/missions.php');
 }
 function aide() {
 	require('views/aide.php');
 }
 function personnage() {
 	require('views/personnage.php');
+}
+function mission() {
+	require('views/mission.php');
 }

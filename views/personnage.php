@@ -3,20 +3,22 @@
 <?php ob_start(); ?>
 
 <section class="d-flex justify-content-center">
-	<div class="home_card container">
-		<div class="news_co">
-			<div>
-				<img class="img-center img-fluid" src="public/images/heros/avatar1.jpg">
+	<div class="user_card container">
+
+			<div class="col-md-12 col-lg-12">
+				<div class="text-center">
+					<img class="img-center img-fluid avatar" src="public/images/heros/avatar1.jpg">
+				</div>
 			</div>
 
-			<div class=" home_news">
-				<p>Nom du Perso :</p>
-				<p>Pouvoir :</p>
-				<p>Karma :</p>
-				<p>Age :</p>
-				<p>Sexe :</p>			
+			<div class="col-md-12 col-lg-12 char_char">
+				<p class="BD-nom">Nom :</p>
+				<p class="BD-nom">Pouvoir :</p>
+				<p class="BD-nom">Karma :</p>
+				<p class="BD-nom">Age :</p>
+				<p class="BD-nom">Sexe :</p>			
 			</div>
-		</div>
+
 	</div>
 </section>
 

@@ -37,6 +37,10 @@ if(isset($_GET['action'])) {
 			aventure();
 			break;
 
+		case 'missions' :
+			missions();
+			break;
+
 		case 'mission' :
 			mission();
 			break;
@@ -44,7 +48,7 @@ if(isset($_GET['action'])) {
 		case 'aide' :
 			aide();
 			break;
-			
+
 		case 'personnage' :
 			personnage();
 			break;

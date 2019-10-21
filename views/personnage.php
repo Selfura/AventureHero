@@ -12,11 +12,11 @@
 			</div>
 
 			<div class="col-md-12 col-lg-12 char_char">
-				<p class="BD-nom">Nom :</p>
-				<p class="BD-nom">Pouvoir :</p>
-				<p class="BD-nom">Karma :</p>
-				<p class="BD-nom">Age :</p>
-				<p class="BD-nom">Sexe :</p>			
+				<p class="BD-nom">Nom : Pharman</p>
+				<p class="BD-nom">Pouvoir : Force</p>
+				<p class="BD-nom">Karma : +15</p>
+				<p class="BD-nom">Age : 24</p>
+				<p class="BD-nom">Sexe : Masculin</p>		
 			</div>
 
 	</div>

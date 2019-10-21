@@ -40,20 +40,20 @@ html {
 	border: 0 none;
 	top:0px; 
 	-webkit-border-radius: 2px;
-	   -moz-border-radius: 2px;
-	        border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 	outline: 0;
 	opacity: 1;
 	-webkit-transition: all .45s;
-	   -moz-transition: all .45s;
-	        transition: all .45s;
-	        float: left;
+	-moz-transition: all .45s;
+	transition: all .45s;
+	float: left;
 }
 .navbar-toggle .icon-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #ffd800;
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: #ffd800;
 }
 .navbar-toggle .icon-bar + .icon-bar {
 	margin-top: 4px;
@@ -76,8 +76,8 @@ html {
 	display:block;
 	opacity:0;
 	-webkit-transition: all .45s;
-	   -moz-transition: all .45s;
-	        transition: all .45s;
+	-moz-transition: all .45s;
+	transition: all .45s;
 }
 .mainmenu .dropdown-menu .active { 
 	font-weight:bold;
@@ -92,8 +92,8 @@ html {
 	color:black;
 	text-decoration: none;
 	-webkit-border-radius: 2px;
-	   -moz-border-radius: 2px;
-	        border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 }
 .mainmenu .dropdown-menu a:hover { 
 	color:white;
@@ -137,11 +137,14 @@ html {
 
 }
 .vl {
-  border-left: 2px solid grey;
+  border-left: 2px solid #f3cb12;
   height: 15em;
   left: 50%;
   margin: 0.5em;
   top: 0;
+}
+.padding-news {
+	padding: 0 0.7em 0 0.7em;
 }
 
 .connexion_home {
@@ -599,9 +602,16 @@ a {
 			/**********************************
 						Personnage
 			************************************/
-.avatar {
+.rank_avatar {
 	border: 2px solid black;
 	border-radius: 0.5rem;
+	width: 30%;
+}
+.avatar {
+
+	border: 2px solid black;
+	border-radius: 0.5rem;
+
 }
 
 .char_char {

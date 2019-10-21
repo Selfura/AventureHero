@@ -1,5 +1,10 @@
 <?php 
 
+require("models/manager.php");
+require("models/adminManager.php");
+
+use Jeanforteroche\models\AdminManager;
+
 function home() {
 	require('views/home.php');
 }
@@ -41,3 +46,38 @@ function mission() {
 function adm() {
 	require('views/backend/adm.php');
 }
+
+
+/************* CONNEXION ***************** 
+
+*************		    *******************/
+
+
+function admin($login)
+{	
+
+	$adminManager = new AdminManager();
+	$log = $adminManager->getLogin($login);
+
+	if ($_POST['login'] == $log['login']) {
+
+		$login = $log['login'];
+
+		if(password_verify($_POST['pw'], $log['pw'])) {
+
+			$_SESSION['login'] = $log['login'];
+		
+			require('views/backend/adm.php');
+		} else {
+		echo "Mot de passe ou Identifiant erroné(s). 
+			</br>
+			<a href='../jeanforteroche/index.php?action=accueil'> Retour au site </a>";
+	}
+	} 
+	else {
+		echo "Mot de passe ou Identifiant erroné(s). 
+			</br>
+			<a href='../jeanforteroche/index.php?action=accueil'> Retour au site </a>";
+	}
+}
+

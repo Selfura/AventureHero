@@ -5,6 +5,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="index.php?action=accueil" class="active">Accueil</a></li>
 						<li><a href="index.php?action=login">Se connecter</a></li>
+						<li><a href="index.php?action=logout">Se Déconnecter</a></li>
 						<li><a href="index.php?action=inscription">S'inscrire</a></li>
 						<li><a href="index.php?action=rank">Classement</a></li>
 						<li><a href="index.php?action=aventure">Aventure</a></li>

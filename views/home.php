@@ -5,22 +5,29 @@
 <section class="d-flex justify-content-center">
 	<div class="home_card container">
 		<div class="news_co">
+			
 			<div>
 				<h1 class="text-center"> LES NEWS DE HERO AVENTURE</h1>
 				<div class="padding-news">
-					<h2 class="text-center">Titre de la News</h2>
-					<p> Ici il y aura une news. La dernière News du site ! <br>
-					Pour l'instant toutefois il n'y a pas grand chose était donné que le site est en construction. La phase de test n'est même pas encore commencée.
-					Mais Cette page d'accueil commence à ressembler à quelque chose et c'est plaisant. Il y a toutefois de nombreuses pages à faire encore ! <br>
-					Alors si par hasard vous tombez sur cette page, sachez qu'il s'agit là d'un projet personnel dans le cadre d'une formation de développeur Web.
-					Le but est de faire un site, et aimant les jeux de rôles et le jeu vidéo en général, j'ai eu pour idée de faire ce jeu par navigateur. Mais vous êtes là un peu tôt, le site n'est pas encore fonctionnel. Bonne journée à vous !</p>
+			<?php
+
+					while ($donnees = $lastNews->fetch())
+				{
+			?>
+					<h2 class="text-center"><?= htmlspecialchars($donnees['titre']); ?></h2>
+					<p> <?= substr(($donnees['annonce']), 0, 800).'...'; ?></p>
+					<p><?= $donnees['date_creation_fr']; ?></p>
 				</div>
+			<?php
+				} 
+				$lastNews->closeCursor();
+			?>
 
 				
 			</div>
 			<div class="vl"></div>
 			<div class="home_log">
-				<form class="connexion_home">
+				<form class="connexion_home" action="index.php?action=log" method="POST" autocomplete="off">
 					<div class="input-group mb-3">
 						<div class="input-group-append">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -33,8 +40,8 @@
 						</div>
 						<input type="password" name="" class="form-control input_pass" value="" placeholder="Mot de passe">
 					</div>
-				</form>
 					<button type="button" name="button" class="d-flex justify-content-center btn btn_home">Se connecter</button>
+				</form>
 					<button type="button" name="button" class="d-flex justify-content-center btn btn_home">S'incrire</button>
 			</div>
 		</div>

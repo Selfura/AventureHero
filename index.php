@@ -2,6 +2,9 @@
 
 require('controllers/controller.php');
 
+
+
+//try {
 if(isset($_GET['action'])) {
 
 	switch ($_GET['action']) {
@@ -18,7 +21,13 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'homelog' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			$_SESSION['login'] = $_COOKIE['login'];
 			homelog();
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
 			break;
 
 		case 'news' :
@@ -34,14 +43,26 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'aventure' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			$_SESSION['login'] = $_COOKIE['login'];
 			aventure();
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
 			break;
-
 		case 'missions' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			$_SESSION['login'] = $_COOKIE['login'];
 			missions();
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
 			break;
 
 		case 'mission' :
+			session_start();
 			mission();
 			break;
 
@@ -50,15 +71,51 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'personnage' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			$_SESSION['login'] = $_COOKIE['login'];
 			personnage();
-			break;
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
+        break;
 
 		case 'adm' :
+		if(isset($_COOKIE['login'])) {
+           session_start();
+			$_SESSION['login'] = $_COOKIE['login'];
 			adm();
-			break;
+		} else {
+			header('Location: index.php?action=accueil');
+		}
+		break;
+
+		case 'log' :
+		if(!empty($_POST['login'])) {
+            session_start();
+            connect($_POST['login']);;
+        }
+        else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
+        break;
+
+
+        case 'logout':
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+            logout();
+        break;
 
 	}
 }
 else{
 		home();
 	}
+/*}
+catch(Exception $e) {
+
+    echo 'Erreur : ' . $e->getMessage();
+    header('Refresh:3; url= ../aventurehero/index.php?action=accueil');
+}*/

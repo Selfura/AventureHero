@@ -8,18 +8,18 @@
 		<div class="d-flex justify-content-center">
 			<div class="user_card">
 				<div class=" justify-content-center form_container">
-					<form action="index.php?action=adm" method="POST" autocomplete="off">
+					<form action="index.php?action=log" method="POST" autocomplete="off">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="Identifiant">
+							<input type="text" name="login" class="form-control input_user" value="" placeholder="Identifiant">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="" class="form-control input_pass" value="" placeholder="Mot de passe">
+							<input type="password" name="password" class="form-control input_pass" value="" placeholder="Mot de passe">
 						</div>
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">

@@ -43,7 +43,7 @@
 		require ("views/navtempo.php");
 		?>
 		<div class="d-flex justify-content-center">
-		<img src="public/images/logo.png" class="img-responsive logo img-fluid"></img>
+		<a href="index.php?action=accueilback"><img src="public/images/logo.png" class="img-responsive logo img-fluid"></img></a>
 		</div>
 
 

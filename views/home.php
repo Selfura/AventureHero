@@ -40,9 +40,9 @@
 						</div>
 						<input type="password" name="" class="form-control input_pass" value="" placeholder="Mot de passe">
 					</div>
-					<button type="button" name="button" class="d-flex justify-content-center btn btn_home">Se connecter</button>
+					<button type="submit" name="connexion" class="btn login_btn">Se connecter</button>
 				</form>
-					<button type="button" name="button" class="d-flex justify-content-center btn btn_home">S'incrire</button>
+					<a href="index.php?action=inscription"><button type="submit" name="inscription" class="btn login_btn">inscription</button></a>
 			</div>
 		</div>
 

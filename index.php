@@ -23,7 +23,6 @@ if(isset($_GET['action'])) {
 		case 'homelog' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			$_SESSION['login'] = $_COOKIE['login'];
 			homelog();
 		} else {
             header('Location: ../aventurehero/index.php?action=accueil');
@@ -45,7 +44,6 @@ if(isset($_GET['action'])) {
 		case 'aventure' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			$_SESSION['login'] = $_COOKIE['login'];
 			aventure();
 		} else {
             header('Location: ../aventurehero/index.php?action=accueil');
@@ -54,7 +52,6 @@ if(isset($_GET['action'])) {
 		case 'missions' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			$_SESSION['login'] = $_COOKIE['login'];
 			missions();
 		} else {
             header('Location: ../aventurehero/index.php?action=accueil');
@@ -62,8 +59,12 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'mission' :
+		if(isset($_COOKIE['login'])) {
 			session_start();
 			mission();
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
 			break;
 
 		case 'aide' :
@@ -73,7 +74,6 @@ if(isset($_GET['action'])) {
 		case 'personnage' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			$_SESSION['login'] = $_COOKIE['login'];
 			personnage();
 		} else {
             header('Location: ../aventurehero/index.php?action=accueil');
@@ -83,8 +83,8 @@ if(isset($_GET['action'])) {
 		case 'adm' :
 		if(isset($_COOKIE['login'])) {
            session_start();
-			$_SESSION['login'] = $_COOKIE['login'];
-			adm();
+           $_SESSION['login'] = $_COOKIE['login'];
+			adm($_SESSION['login']);
 		} else {
 			header('Location: index.php?action=accueil');
 		}
@@ -93,7 +93,7 @@ if(isset($_GET['action'])) {
 		case 'log' :
 		if(!empty($_POST['login'])) {
             session_start();
-            connect($_POST['login']);;
+            connect($_POST['login']);
         }
         else {
             header('Location: ../aventurehero/index.php?action=accueil');
@@ -108,6 +108,22 @@ if(isset($_GET['action'])) {
             logout();
         break;
 
+        case 'accueilback':
+        if(isset($_COOKIE['login'])) {
+			$_SESSION['login'] = $_COOKIE['login'];
+			homelog();
+		} else {
+            home();
+        }
+        break;
+
+        case 'newNews':
+        if ($_POST['titre'] != NULL && $_POST['annonce'] != NULL) {
+        	newNews($_POST['titre'], $_POST['annonce']);
+        } else {
+            throw new Exception("Les champs doivent tous être remplis.");   
+        }
+        break;
 	}
 }
 else{

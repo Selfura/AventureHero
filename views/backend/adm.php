@@ -58,8 +58,7 @@
 					<input type="text" name="choix2" class="form-control" value="" placeholder="Choix 2">
 					<input type="text" name="choix3" class="form-control" value="" placeholder="Choix 3">
 					<input type="text" name="choix4" class="form-control" value="" placeholder="Choix 4">
-					<input type="text" name="choix5" class="form-control" value="" placeholder="Choix 5">
-					<input type="text" name="choix6" class="form-control" value="" placeholder="Choix 6">
+
 				</form>
 				<p class="tagline">
 					Numero de la mission :<br>
@@ -74,8 +73,6 @@
 				<input type="text" name="choix2" class="form-control" value="" placeholder="Choix 2">
 				<input type="text" name="choix3" class="form-control" value="" placeholder="Choix 3">
 				<input type="text" name="choix4" class="form-control" value="" placeholder="Choix 4">
-				<input type="text" name="choix5" class="form-control" value="" placeholder="Choix 5">
-				<input type="text" name="choix6" class="form-control" value="" placeholder="Choix 6">
 
 
 				<p class="tagline">
@@ -91,8 +88,6 @@
 				<input type="text" name="choix2" class="form-control" value="" placeholder="Choix 2">
 				<input type="text" name="choix3" class="form-control" value="" placeholder="Choix 3">
 				<input type="text" name="choix4" class="form-control" value="" placeholder="Choix 4">
-				<input type="text" name="choix5" class="form-control" value="" placeholder="Choix 5">
-				<input type="text" name="choix6" class="form-control" value="" placeholder="Choix 6">
 
 				<div class="d-flex justify-content-center mt-3 login_container">
 					<button type="button" name="button" class="btn login_btn">Envoyer</button>
@@ -106,14 +101,16 @@
 
 		<div class="container section" id="annonce">
 	
-			<h2 class="text-center title">Crééer une Annonce</h2>
+			<h2 class="text-center title">Créer une Annonce</h2>
 			<div class="row">
-				<div class="col-sm-12">    
-					<input type="text" name="title_annonce" class="form-control" value="" placeholder="Titre de l'annonce">
-					<textarea placeholder="Entrez la News ici..." class="form-control tinymce" rows="7" name="Annonce" required></textarea>
-					<div class="d-flex justify-content-center mt-3 login_container">
-						<button type="button" name="button" class="btn login_btn">Envoyer</button>
-					</div>
+				<div class="col-sm-12">  
+					<form method="POST" action="index.php?action=newNews">  
+						<input type="text" name="titre" class="form-control" value="" placeholder="Titre de l'annonce" required>
+						<textarea placeholder="Entrez la News ici..." class="form-control tinymce" rows="7" name="annonce" required></textarea>
+						<div class="d-flex justify-content-center mt-3 login_container">
+							<button type="submit" class="btn login_btn">Envoyer</button>
+						</div>
+					</form>
 				</div>
 			</div>
 

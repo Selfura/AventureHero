@@ -42,7 +42,7 @@
 				
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Déjà un compte ? <a href="#" class="ml-2">Se connecter</a>
+						Déjà un compte ? <a href="index.php?action=login" class="ml-2">Se connecter</a>
 					</div>
 				</div>
 			</div>

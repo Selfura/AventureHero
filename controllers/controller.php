@@ -47,9 +47,17 @@ function personnage() {
 function mission() {
 	require('views/mission.php');
 }
-function adm() {
+function adm($compteAdmin) {
 
-	require('views/backend/adm.php');
+	$membresManager = new MembresManager();
+	$logAdmin = $membresManager->adminAcces($compteAdmin);
+
+	if ($logAdmin === 1) {
+		require('views/backend/adm.php');
+	} else {
+		header('Location: index.php?action=homelog');
+	}
+	
 }
 
 
@@ -63,6 +71,7 @@ function connect($login)
 
 	$membresManager = new MembresManager();
 	$log = $membresManager->getLogin($login);
+	
 
 	if ($_POST['login'] == $log['login']) {
 
@@ -75,15 +84,13 @@ function connect($login)
 
 			header('Location: ../aventurehero/index.php?action=homelog');
 		} else {
-		echo "Mot de passe ou Identifiant erroné(s). 
-			</br>
-			<a href='index.php?action=accueil'> Retour au site </a>";
+		echo"<script type='text/javascript' alert('Mot de passe ou Identifiant erroné(s).');</script>";
+		header('Refresh: 0; url= ../aventurehero/index.php?action=login');
 	}
 	} 
 	else {
-		echo "Mot de passe ou Identifiant erroné(s). 
-			</br>
-			<a href='index.php?action=accueil'> Retour au site </a>";
+		echo"<script> alert('Mot de passe ou Identifiant erroné(s).');</script>";
+		header('Refresh: 0; url= ../aventurehero/index.php?action=login');
 	}
 }
 
@@ -108,7 +115,7 @@ function newNews($titre, $annonce) {
 	session_start();
 	$newsManager = new NewsManager();
 
-    $createNews = $newsManager->createNews($title, $content);
+    $createNews = $newsManager->createNews($titre, $annonce);
 	header('Location: ../aventurehero/index.php?action=adm');
 }
 //Lecture des Annonces

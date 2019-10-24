@@ -4,6 +4,8 @@ namespace Aventurehero\models;
 
 require_once("models/manager.php");
 
+use PDO;
+
 class newsManager extends Manager {
 
 	public function getNews() {
@@ -25,8 +27,8 @@ class newsManager extends Manager {
 		$db = $this->dbConnect();
 		//création d'une annonce.
 
-		$post =  $db->prepare('INSERT INTO anews(titre, annonce, date_creation) VALUES (?, ?, NOW()');
-		$createNews = $post->execute(array($titre, $annonce));
+		$news =  $db->prepare('INSERT INTO anews(titre, annonce, date_creation) VALUES (?, ?, NOW())');
+		$createNews = $news->execute(array($titre, $annonce));
 
 		return $createNews;
 	}

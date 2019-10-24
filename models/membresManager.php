@@ -20,13 +20,13 @@ class MembresManager extends Manager {
 
 	}
 
-	public function adminAcces($login) {
+	public function adminAcces($compteAdmin) {
 		$db = $this->dbConnect();
 		// On récupére les membres ayant pour rôle admin.
 		
-		$req = $db->prepare('SELECT * FROM amembres WHERE compteAdmin= 1');
+		$req = $db->prepare('SELECT * FROM amembres WHERE compteAdmin=?');
 
-		$req->execute(array($login));
+		$req->execute(array($compteAdmin));
 
 		$logAdmin = $req->fetch();
 

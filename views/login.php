@@ -35,7 +35,7 @@
 				
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Pas de compte ? <a href="#" class="ml-2">Inscriptions</a>
+						Pas de compte ? <a href="index.php?action=inscription" class="ml-2">S'inscrire</a>
 					</div>
 					<div class="d-flex justify-content-center links">
 						<a href="#">Mot de passe Oublié ?</a>

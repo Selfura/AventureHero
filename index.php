@@ -9,7 +9,12 @@ if(isset($_GET['action'])) {
 
 	switch ($_GET['action']) {
 		case 'accueil' :
-			home();
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			homelog();
+		} else {
+            home();
+        }
 			break;
 
 		case 'login' :
@@ -82,11 +87,10 @@ if(isset($_GET['action'])) {
 
 		case 'adm' :
 		if(isset($_COOKIE['login'])) {
-           session_start();
-           $_SESSION['login'] = $_COOKIE['login'];
+			session_start();
 			adm($_SESSION['login']);
 		} else {
-			header('Location: index.php?action=accueil');
+			header('Location: index.php?action=homelog');
 		}
 		break;
 

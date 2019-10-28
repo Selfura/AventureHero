@@ -50,9 +50,9 @@ function mission() {
 function adm($compteAdmin) {
 
 	$membresManager = new MembresManager();
-	$logAdmin = $membresManager->adminAcces($compteAdmin);
+	
 
-	if ($logAdmin === 1) {
+	if ($logAdmin = $membresManager->adminAcces($compteAdmin)) {
 		require('views/backend/adm.php');
 	} else {
 		header('Location: index.php?action=homelog');

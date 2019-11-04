@@ -3,10 +3,14 @@
 require("models/manager.php");
 require("models/membresManager.php");
 require("models/newsManager.php");
+require("models/aventuresManager.php");
+require("models/persoManager.php");
+
 
 use Aventurehero\models\MembresManager;
 use Aventurehero\models\NewsManager;
 use Aventurehero\models\AventuresManager;
+use Aventurehero\models\PersoManager;
 
 function home() {
 	$newsManager = new NewsManager();
@@ -26,7 +30,11 @@ function homelog() {
 	$lastNews = $newsManager->getLastNews();
 	require('views/accueilco.php');
 }
-function rank() {
+function rank($id_membre) {
+
+	$persoManager = new PersoManager();
+	$personnages = $persoManager->getPerso($id_membre);
+
 	require('views/rank.php');
 }
 function contact() {
@@ -41,17 +49,34 @@ function missions() {
 function aide() {
 	require('views/aide.php');
 }
-function personnage() {
+function personnage($id_membre) {
+	$persoManager = new PersoManager();
+	$char = $persoManager->getPerso($id_membre);
+
+	$donnees = $char->fetch();
+
 	require('views/personnage.php');
 }
 function mission() {
 	require('views/mission.php');
 }
+function prologue() {
+	$aventuresManager = new AventuresManager();
+	$prologue = $aventuresManager->getPrologue();
+
+	$donnees = $prologue->fetch();
+
+	require('views/prologue.php');
+}
+
+function charcrea() {
+	require('views/creation_personnage.php');
+}
+
 function adm($compteAdmin) {
 
 	$membresManager = new MembresManager();
 	
-
 	if ($logAdmin = $membresManager->adminAcces($compteAdmin)) {
 		require('views/backend/adm.php');
 	} else {
@@ -127,4 +152,19 @@ function news()
 	$news = $newsManager->getNews();
 
 	require('views/news.php');
+}
+
+
+/************* CREATION PERSO ***************** 
+
+*************		    *******************/
+
+function createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe) {
+
+	session_start();
+	$persoManager = new PersoManager();
+	$createPerso = $persoManager->createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe);
+
+	header('Location: ../aventurehero/index.php?action=accueilco');
+
 }

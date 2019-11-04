@@ -20,7 +20,7 @@
 		<div class="container section" id="newchap">
 			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">	
 
-				<!-- Site Title, your name, HELLO msg, etc. -->
+
 				<h1 class="title">Créer un Nouveau Chapitre</h1>
 
 				<!-- Short introductory (optional) -->

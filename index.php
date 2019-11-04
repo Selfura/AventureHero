@@ -39,7 +39,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'rank' :
-			rank();
+			rank($_GET['id_membre']);
 			break;
 
 		case 'contact' :
@@ -72,6 +72,24 @@ if(isset($_GET['action'])) {
         }
 			break;
 
+		case 'prologue' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			prologue();
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
+        break;
+
+        case 'char_creation' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			charcrea();
+		} else {
+            header('Location: ../aventurehero/index.php?action=accueil');
+        }
+        break;
+
 		case 'aide' :
 			aide();
 			break;
@@ -79,7 +97,7 @@ if(isset($_GET['action'])) {
 		case 'personnage' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			personnage();
+			personnage($_GET['id_membre']);
 		} else {
             header('Location: ../aventurehero/index.php?action=accueil');
         }
@@ -126,6 +144,14 @@ if(isset($_GET['action'])) {
         	newNews($_POST['titre'], $_POST['annonce']);
         } else {
             throw new Exception("Les champs doivent tous être remplis.");   
+        }
+        break;
+
+        case 'createPerso':
+        if ($_POST['Avatar'] != NULL && $_POST['Nom'] != NULL && $_POST['Pouvoir'] != NULL && $_POST['Age'] != NULL && $_POST['Sexe'] != NULL) {
+			createPerso( $_POST['Avatar'], $_POST['Nom'], $_POST['Pouvoir'], $_POST['Age'], $_POST['Sexe']);
+		} else {
+            throw new Exception("Les champs doivent tous être remplis.");
         }
         break;
 	}

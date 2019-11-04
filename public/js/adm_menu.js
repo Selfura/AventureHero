@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 	{
 		if( ! $(this).hasClass('active') ) { 
 			current_item = this;
-			// fermées les divs avec class .section
+			// fermer les divs avec class .section
 			$('.section:visible').fadeOut( section_hide_time, function() { 
 				$('a', '.adm_menu').removeClass( 'active' );  
 				$(current_item).addClass( 'active' );

@@ -6,7 +6,38 @@
 	<div class="home_card container">
 		<div class="news_co">
 			<div class=" home_news">
-				<h1 class="text-center"> Bienvenue à toi Hero ! (si Karma supérieur = Super hero, sinon Vilain. Ou féminin si perso féminin.)</h1>
+				<br>
+				<h1 class="text-center"> Bienvenue a toi Hero !</h1>
+
+				<div class="home_tuto">
+					<h2> Commencer le prologue / continuer la mission</h2>
+					<a href="index.php?action=prologue"><img class="img-center img-fluid" src="public/images/continuer_aventure.jpg"></a>
+				</div>
+				<div>
+					<br>
+				<h2 class="text-center"> Deniere News</h2>
+				<br>
+				<div class="padding-news">
+					<?php
+
+					while ($donnees = $lastNews->fetch())
+					{
+					?>
+					<h3 class="text-center"><?= htmlspecialchars($donnees['titre']); ?></h3>
+					<p> <?= substr(($donnees['annonce']), 0, 800).'...'; ?></p>
+					<p><?= $donnees['date_creation_fr']; ?></p>
+
+					<?php
+						} 
+						$lastNews->closeCursor();
+					?>
+				</div>
+					
+
+				
+				</div>
+
+				<h2 class="text-center"> Synopsis </h1>
 				<p> Après la découverte secrète du gouvernement chinois d'un sérum capable de créer des surhommes au sein de son armée, il ne restait plus qu'à effectuer une phase de test afin d'avoir quelques sujets à examiner. Toutefois, tout ne se passa pas comme prévu. A la veille de tests de plus grande ampleur, la substance disparue.<br><br>
 
 				La Chine voulait accuser les États-Unis, ainsi que le Japon, deux de ses ennemis sur la scène mondiale, toutefois ils ne pouvaient le faire au risque d'ébruiter la création du sérum. De plus, ils n'avaient aucune preuve et accuser un pays à tort risquait de tout dévoiler.<br><br>
@@ -23,10 +54,6 @@
 
 				
 			</div>
-		</div>
-		<div class="home_tuto">
-			<p> Commencer le prologue / continuer la mission</p>
-			<img class="img-center img-fluid" src="public/images/continuer_aventure.jpg">
 		</div>
 	</div>
 </section>

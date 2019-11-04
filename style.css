@@ -21,6 +21,18 @@ html {
 	padding: 0;
 	height: 100%;
 }
+
+p {
+  font-size: 1.1em;
+}
+
+h1, h2, h3 {
+  margin-top: 0.5em;
+   font-family: 'BD_Cartoon';
+}
+
+
+
 			/**********************************
 						NAVIGATION
 			************************************/
@@ -599,6 +611,34 @@ a {
 	opacity: 1;
 }
 
+.block_mission {
+  display: flex;
+  background: #f39c12;
+  margin: auto;
+  margin-top: 1em;
+  padding: 0 2em 1em 2em;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.block_mission h1 {
+  font-family: BD_Cartoon;
+  margin-top: 0.3em;
+}
+
+.btn_prologue {
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.cent {
+  width: 100%;
+}
+
 			/**********************************
 						Personnage
 			************************************/
@@ -611,6 +651,7 @@ a {
 
 	border: 2px solid black;
 	border-radius: 0.5rem;
+  width: 100%;
 
 }
 
@@ -620,4 +661,63 @@ a {
 
 .BD-nom {
 	font-family: BD_Cartoon;
+  font-size: 0.9em;
+}
+
+
+    /* Creation perso */
+
+.flexchar {
+  display: flex;
+}
+
+.flex-wrap-radio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.choix-ava {
+  width: 100%;
+  height: 100%;
+}
+
+.choix-ava img {
+  -webkit-transition: all 1s ease; /* Safari et Chrome */
+  -moz-transition: all 1s ease; /* Firefox */
+  -ms-transition: all 1s ease; /* Internet Explorer 9 */
+  -o-transition: all 1s ease; /* Opera */
+  transition: all 1s ease;
+}
+.choix-ava:hover img {
+  -webkit-transform:scale(5); /* Safari et Chrome */
+  -moz-transform:scale(5); /* Firefox */
+  -ms-transform:scale(5); /* Internet Explorer 9 */
+  -o-transform:scale(5); /* Opera */
+  transform:scale(5);
+} 
+
+.case-crea {
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+  padding: 0.3em;
+}
+.BD-nom label {
+  padding-top: 0.3em;
+}
+
+#caution {
+  font-size: 0.8em;
+}
+
+
+@media (max-width: 768px){
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  h3 {
+    font-size: 1em;
+  }
 }

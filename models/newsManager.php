@@ -33,4 +33,24 @@ class newsManager extends Manager {
 		return $createNews;
 	}
 
+	public function deleteNews($id) {
+		$db = $this->dbConnect();
+		// supression news, pour la partie Admin.
+		$news = $db->prepare('DELETE FROM anews WHERE id= ?');
+		$deleteNews = $news->execute(array($id));
+
+		return $deleteNews;
+	}
+
+	public function updateNews($id) {
+		$db = $this->dbConnect();
+		// on édite une News
+		$news = $db->prepare('UPDATE anews SET titre= ?, annonce=? WHERE id= ?');
+
+		$updateNews = $news->execute(array($_POST['titre'], $_POST['annonce'], $id));
+
+		return $updateNews;
+	}
+
+
 	}

@@ -7,16 +7,16 @@
 
 			<div class="col-md-12 col-lg-12">
 				<div class="text-center">
-					<img class="img-center img-fluid avatar" src="public/images/heros/avatar1.jpg">
+					<img class="img-center img-fluid avatar" src="public/images/heros/<?= $donnees['Avatar']; ?>.jpg">
 				</div>
 			</div>
 
 			<div class="col-md-12 col-lg-12 char_char">
-				<p class="BD-nom">Nom : Pharman</p>
-				<p class="BD-nom">Pouvoir : Force</p>
-				<p class="BD-nom">Karma : +15</p>
-				<p class="BD-nom">Age : 24</p>
-				<p class="BD-nom">Sexe : Masculin</p>		
+				<p class="BD-nom">Nom : <?= $donnees['Nom']; ?></p>
+				<p class="BD-nom">Pouvoir : <?= $donnees['Pouvoir']; ?></p>
+				<p class="BD-nom">Karma : <?= $donnees['Karma']; ?></p>
+				<p class="BD-nom">Age : <?= $donnees['Age']; ?></p>
+				<p class="BD-nom">Sexe : <?= $donnees['Sexe']; ?></p>		
 			</div>
 
 	</div>

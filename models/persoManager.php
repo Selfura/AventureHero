@@ -55,4 +55,16 @@ class PersoManager extends Manager {
 		return $deletePerso;
 	}
 
+
+	public function getAvatar($ava_id) {
+		$db = $this->dbConnect();
+		//Prendre un avatar dans la bdd pour le mettre dans la feuille de perso
+		$req = $db->prepare('SELECT id, avatar FROM aavatar WHERE id= ? ');
+		$req->execute(array($ava_id));
+
+		$avatar = $req->fetch();
+
+		return $avatar;
+	}
+
 }

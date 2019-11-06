@@ -5,19 +5,21 @@
 <section class="d-flex justify-content-center">
 	<div class="aventure">
 		<div class="prologue">
+			<h2 class="selec-chap">Selectionnez un Chapitre</h2>
 			<img class="img-center img-fluid" src="public/images/continuer_aventure.jpg">
 		</div>
 		<div class="container">
 			<div class="chapitres d-flex justify-content-center">
 				<div class="col-md-5 col-lg-3">
 					<div class="img_chap">
-						<div class="portfolio-item-caption">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<p>Chapitre 1</p>
+						<a href="index.php?action=missions">
+							<div class="portfolio-item-caption">
+								<div class="portfolio-item-caption-content text-center text-white">
+									<p>Chapitre 1</p>
+								</div>
 							</div>
-						</div>
 						<img class="img-center img-fluid" src="public/images/Chapitre_1.jpg">
-					</div>
+					</div></a>
 				</div>
 				<div class="col-md-5 col-lg-3">
 					<div class="img_chap">

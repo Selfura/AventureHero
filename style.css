@@ -161,7 +161,6 @@ h1, h2, h3 {
 
 .connexion_home {
 	margin-top: 2em;
-	padding: 0.3em;
 }
 .btn_home {
 	margin: 0.5em 0 0.5em 0;
@@ -468,6 +467,7 @@ a {
 	margin-bottom: 0.5em;
 }
 .login_btn {
+  margin: 0.3em 0 0.5em 0;
 	width: 100%;
 	background: #c0392b !important;
 	color: white !important;
@@ -577,6 +577,28 @@ a {
 	opacity: 1;
 }
 
+.selec-chap {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  left: 0;
+  margin-top: 1.8em;
+}
+
+@media (max-width: 375px){
+  .selec-chap {
+  margin-top: 1.4em;
+  font-size: 1em;
+  }
+  .chapitres {
+    flex-direction: column;
+  }
+  .img_chap {
+    margin-top: 1em;
+  }
+
+}
+
 			/**********************************
 						mission
 			************************************/
@@ -638,6 +660,23 @@ a {
 .cent {
   width: 100%;
 }
+@media (max-width: 420px){
+  .chapitre {
+    justify-content: center;
+  }
+  .img_mission {
+    justify-content: center;
+  }
+  .missions {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .missions_choice {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 
 			/**********************************
 						Personnage

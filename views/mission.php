@@ -23,16 +23,17 @@
 				Vous arrivez dans une petite ville de Corèze, un homme un peu mou avec des lunettes, ponctuant toutes ses phrases par « égné » vous accueille, nous l'appellerons François. Il vous annonce qu'un vil sacripan saccage les pharmacies de la ville à la recherche d'un certain Pharmacien. Mais comme ses recherches sont non concluantes, il ne le trouve pas. </p>
 			</div>
 			<div class="d-flex justify-content-center mt-3 login_container">
-				<button type="button" name="button" class="btn login_btn btn_prologue">Vous partez à la recherche du vilain.</button>
+				<a href="<? ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous partez à la recherche du vilain.</button></a>
 			</div>
 			<div class="d-flex justify-content-center mt-3 login_container">
-				<button type="button" name="button" class="btn login_btn btn_prologue">Vous discutez avec ce François, il vous rappelle vaguement quelqu'un, mais qui ?</button>
+				<a href="<? ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous discutez avec ce François, il vous rappelle vaguement quelqu'un, mais qui ?</button></a>
 			</div>
 			<div class="d-flex justify-content-center mt-3 login_container">
-				<button type="button" name="button" class="btn login_btn btn_prologue">Vous vous dites que finalement, l'homéopathie c'est pas si mal et vous retournez chez vous.</button>
+				<a href="<? ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous vous dites que finalement, l'homéopathie c'est pas si mal et vous retournez chez vous.</button></a>
 			</div>
 			<div class="d-flex justify-content-center mt-3 login_container">
-				<button type="button" name="button" class="btn login_btn btn_prologue">Vous êtes à fond pour l'homéopathie et vous cherchez vous aussi cet  enquiquineur de pharmacien.</button>
+				<a href="<? ?>"class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous êtes à fond pour l'homéopathie et vous cherchez vous aussi cet  enquiquineur de pharmacien.
+				</button></a>
 			</div>
 		</div>
 	</div>

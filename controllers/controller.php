@@ -15,6 +15,7 @@ use Aventurehero\models\PersoManager;
 function home() {
 	$newsManager = new NewsManager();
 	$lastNews = $newsManager->getLastNews();
+	
 	require('views/home.php');
 }
 
@@ -35,6 +36,8 @@ function rank($id_membre) {
 	$persoManager = new PersoManager();
 	$personnages = $persoManager->getPerso($id_membre);
 
+	$personnages = isset($_POST['id_membre']) ? $_POST['id_membre'] : NULL;
+
 	require('views/rank.php');
 }
 function contact() {
@@ -53,8 +56,6 @@ function personnage($id_membre) {
 	$persoManager = new PersoManager();
 	$char = $persoManager->getPerso($id_membre);
 
-	$donnees = $char->fetch();
-
 	require('views/personnage.php');
 }
 function mission() {
@@ -69,7 +70,13 @@ function prologue() {
 	require('views/prologue.php');
 }
 
-function charcrea() {
+function charcrea($ava_id) {
+
+	$persoManager = new PersoManager();
+	$avatar = $persoManager->getAvatar($ava_id);
+
+	$avatar = isset($_POST['avatar']) ? $_POST['avatar'] : NULL;
+
 	require('views/creation_personnage.php');
 }
 

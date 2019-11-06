@@ -12,9 +12,9 @@
 						Choisissez l'avatar de votre personnage :<br />
 						<div class="d-flex">
 							<div>
-								<input type="radio" name="Avatar" value="avatar1.jpg" id="avatar1" />
+								<input type="radio" name="Avatar" value="1" id="avatar1" />
 								<div class=" choix-ava">
-									<label for="avatar1"><img class="img-center img-fluid avatar" src="public/images/heros/avatar1.jpg"/></label>
+									<label for="1"><img class="img-center img-fluid avatar" src="<?= $avatar['avatar']; ?>"/></label>
 								</div>
 							</div>
 	      					<div>
@@ -94,27 +94,29 @@
 
 			<div class="col-md-12 col-lg-12 char_char">
 				<div>
-					<p class="d-flex BD-nom"><input type="text" name="Nom" class="form-control input_user" value="" placeholder="Nom" required></p>
+					<p class="d-flex BD-nom"><input type="text" name="Nom" class="form-control input_user" placeholder="Nom" required></p>
 				</div>
 				<p class="d-flex BD-nom">
 					<label>Pouvoir</label>
-					<select name="Pouvoir" class="case-crea">
-						<option value="Elementaire">Elementaire</option>
-						<option value="esprit">Esprit</option>
-						<option value="Force">Force</option>
-						<option value="mystique">Mystique</option>
+					<select name="Pouvoir" class="case-crea" value="Pouvoir">
+						<option value=" " >Votre Pouvoir</option>
+						<option>Elementaire</option>
+						<option>Esprit</option>
+						<option>Force</option>
+						<option>Mystique</option>
 					</select>
 				</p>
-				<p class="d-flex BD-nom"><input type="number" name="Age" class="form-control input_user" value="" placeholder="Age" required></p>
+				<p class="d-flex BD-nom"><input type="number" name="Age" class="form-control input_user" placeholder="Age" required></p>
 				<p class="d-flex BD-nom">
 					<label>Sexe</label>
 					<select name="Sexe" class="case-crea">
-						<option value="feminin">Feminin</option>
-						<option value="masculin">Masculin</option>
+						<option value=" " >Votre Sexe</option>
+						<option>Feminin</option>
+						<option>Masculin</option>
 					</select>
 				</p>
 			</div>
-			<button type="submit" name="Envoyer" class="btn login_btn">Créer le personnage</button>
+			<a class="cent" href="index.php?action=accueil"><button type="submit" name="Envoyer" class="btn login_btn">Créer le personnage</button></a>
 		<form>
 		<p id="caution">Attention, une fois le personnage créé, ces informations ne peuvent être changées.</p>
 	</div>

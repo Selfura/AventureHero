@@ -39,7 +39,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'rank' :
-			rank($_GET['id_membre']);
+			rank(isset($_GET['id_membre']));
 			break;
 
 		case 'contact' :
@@ -84,7 +84,7 @@ if(isset($_GET['action'])) {
         case 'char_creation' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			charcrea();
+			charcrea(isset($_GET['avatar']));
 		} else {
             header('Location: ../aventurehero/index.php?action=accueil');
         }

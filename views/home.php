@@ -42,7 +42,7 @@
 					</div>
 					<button type="submit" name="connexion" class="btn login_btn">Se connecter</button>
 				</form>
-					<a href="index.php?action=inscription"><button type="submit" name="inscription" class="btn login_btn">inscription</button></a>
+					<a href="index.php?action=inscription"><button type="submit" name="inscription" class="btn login_btn">S'inscrire</button></a>
 			</div>
 		</div>
 

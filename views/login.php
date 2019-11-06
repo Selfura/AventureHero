@@ -21,12 +21,6 @@
 							</div>
 							<input type="password" name="password" class="form-control input_pass" value="" placeholder="Mot de passe">
 						</div>
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Se Souvenir de Moi</label>
-							</div>
-						</div>
 						<div class="d-flex justify-content-center mt-3 login_container">
 							<button type="submit" name="connexion" class="btn login_btn">Se connecter</button>
 						</div>

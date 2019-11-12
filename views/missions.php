@@ -5,6 +5,8 @@
 <section class="d-flex justify-content-center">
 	<div class="aventure">
 		<div class="container justify-content-center">
+			<h1 class="text-center">Choisir une mission</h1>
+			<br>
 			<div class="missions ">
 				<div class="chapitre d-flex">
 						<div class="img_chap">

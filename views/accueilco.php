@@ -7,11 +7,28 @@
 		<div class="news_co">
 			<div class=" home_news">
 				<br>
-				<h1 class="text-center"> Bienvenue a toi Hero !</h1>
+				<h1 class="text-center"> Bienvenue a toi <?= $char['Nom']; ?></h1>
 
 				<div class="home_tuto">
-					<h2> Commencer le prologue / continuer la mission</h2>
-					<a href="index.php?action=prologue"><img class="img-center img-fluid" src="public/images/continuer_aventure.jpg"></a>
+					
+					
+					<?php 
+						$charIsCreated = isset($_GET['id_membre']);
+
+						if(!$charIsCreated) {
+							echo '
+							<h2> Continuer l\'aventure</h2>
+							<div class="blink"> <h4 class="selec-chap">Cliquez sur l\'image pour continuer</h4></div>
+							<a href="index.php?action=aventure"><img class="img-center img-fluid" src="public/images/continuer_aventure.jpg"></a>';
+						} else {
+							echo '
+							<h2> Commencer le prologue</h2>
+							<div class="blink"> <h4 class="selec-chap">Cliquez sur l\'image pour commencer</h4></div>
+							<a href="index.php?action=prologue"><img class="img-center img-fluid" src="public/images/continuer_aventure.jpg"></a>';
+						}
+					?>
+					
+					
 				</div>
 				<div>
 					<br>
@@ -49,7 +66,7 @@
 
 				Puis vient le temps où plusieurs personnes à travers le monde contractaient différents symptomes très étranges. Certains possédaient une force décuplée, d'autres pouvaient manier les éléments, certains pouvait utiliser la télékinésie, et d'autres encore avaient développé des pouvoirs difficilement explicables qu'ils furent catégorisés en tant que mystiques. <br><br>
 
-				L'esprit humain étant ce qu'il est, et ce malgré la phrase d'oncle Ben dans le premier Spiderman de Sam Raimi, « Un grand pouvoir amène de grandes responsabilités », le nombre de personne voulait utiliser leurs pouvoirs pour l'apport personnel est plus nombreux que les gens vertueux souhaitant le bien.
+				L'esprit humain étant ce qu'il est, et ce malgré la phrase d'oncle Ben dans le premier Spiderman de Sam Raimi, « Un grand pouvoir implique de grandes responsabilités », le nombre de personne voulait utiliser leurs pouvoirs pour l'apport personnel est plus nombreux que les gens vertueux souhaitant le bien.
 				</p>
 
 				

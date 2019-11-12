@@ -15,12 +15,12 @@ class PersoManager extends Manager {
 
 	}
 
-	public function createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe) {
+	public function createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe, $id_membre) {
 		$db = $this->dbConnect();
 		// on crée un nouveau post
 
-		$perso = $db->prepare('INSERT INTO aPersonnages(Avatar, Nom, Pouvoir, Karma, Age, Sexe) VALUES (?, ?, ?, ?, ?)');
-		$createPerso = $perso->execute(array($Avatar, $Nom, $Pouvoir, $Age, $Sexe));
+		$perso = $db->prepare('INSERT INTO aPersonnages(Avatar, Nom, Pouvoir, Age, Sexe, id_membre) VALUES (?, ?, ?, ?, ?, ?)');
+		$createPerso = $perso->execute(array($Avatar, $Nom, $Pouvoir, $Age, $Sexe, $id_membre));
 
 		return $createPerso;
 	}
@@ -29,7 +29,7 @@ class PersoManager extends Manager {
 		$db = $this->dbConnect();
 		//on récupère un chapitre via son id
 
-		$req = $db->prepare('SELECT id, Avatar, Nom, Pouvoir,Karma, Age, Sexe, Progression, id_membre FROM apersonnages WHERE id= ? ');
+		$req = $db->prepare('SELECT id, Avatar, Nom, Pouvoir,Karma, Age, Sexe, Progression, id_membre FROM apersonnages WHERE id_membre= ? ');
 		$req->execute(array($id_membre));
 		$char = $req->fetch();
 
@@ -56,15 +56,12 @@ class PersoManager extends Manager {
 	}
 
 
-	public function getAvatar($ava_id) {
+	public function getAvatar() {
 		$db = $this->dbConnect();
 		//Prendre un avatar dans la bdd pour le mettre dans la feuille de perso
-		$req = $db->prepare('SELECT id, avatar FROM aavatar WHERE id= ? ');
-		$req->execute(array($ava_id));
+		$req = $db->query('SELECT id, avatar FROM aavatar ORDER BY id ');
 
-		$avatar = $req->fetch();
-
-		return $avatar;
+		return $req;
 	}
 
 }

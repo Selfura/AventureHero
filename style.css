@@ -26,7 +26,7 @@ p {
   font-size: 1.1em;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin-top: 0.5em;
    font-family: 'BD_Cartoon';
 }
@@ -48,7 +48,7 @@ h1, h2, h3 {
 	float:left;
 	display:block;
 	padding: 9px 10px;
-	background: rgba(255, 0, 0, 0.5);
+	background: rgba(255, 0, 0, 1);
 	border: 0 none;
 	top:0px; 
 	-webkit-border-radius: 2px;
@@ -108,7 +108,7 @@ h1, h2, h3 {
 	border-radius: 2px;
 }
 .mainmenu .dropdown-menu a:hover { 
-	color:white;
+	color: #b30909;
 	padding: 5px 8px 5px 12px;
 }
 
@@ -578,11 +578,21 @@ a {
 }
 
 .selec-chap {
+  color: #b30909;
   position: absolute;
   margin: auto;
   width: 100%;
   left: 0;
   margin-top: 1.8em;
+  animation: blink 4s linear infinite;
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  25%{opacity: 2;}
+  50%{opacity: 4;}
+  75%{opacity: 2;}
+  100%{opacity: 0;}
 }
 
 @media (max-width: 375px){
@@ -690,7 +700,6 @@ a {
 
 	border: 2px solid black;
 	border-radius: 0.5rem;
-  width: 100%;
 
 }
 

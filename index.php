@@ -11,7 +11,7 @@ if(isset($_GET['action'])) {
 		case 'accueil' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			homelog();
+			homelog(isset($_SESSION['id']));
 		} else {
             home();
         }
@@ -28,9 +28,9 @@ if(isset($_GET['action'])) {
 		case 'homelog' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			homelog();
+			homelog(isset($_SESSION['id']));
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
 			break;
 
@@ -51,7 +51,7 @@ if(isset($_GET['action'])) {
 			session_start();
 			aventure();
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
 			break;
 		case 'missions' :
@@ -59,16 +59,16 @@ if(isset($_GET['action'])) {
 			session_start();
 			missions();
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
 			break;
 
 		case 'mission' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			mission();
+			mission(isset($_GET['id']));
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location:index.php?action=accueil');
         }
 			break;
 
@@ -77,16 +77,16 @@ if(isset($_GET['action'])) {
 			session_start();
 			prologue();
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
         break;
 
         case 'char_creation' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			charcrea(isset($_GET['avatar']));
+			charcrea();
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
         break;
 
@@ -97,9 +97,9 @@ if(isset($_GET['action'])) {
 		case 'personnage' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			personnage($_GET['id_membre']);
+			personnage($_SESSION['id']);
 		} else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
         break;
 
@@ -118,7 +118,7 @@ if(isset($_GET['action'])) {
             connect($_POST['login']);
         }
         else {
-            header('Location: ../aventurehero/index.php?action=accueil');
+            header('Location: index.php?action=accueil');
         }
         break;
 

@@ -7,7 +7,7 @@
 
 			<div class="col-md-12 col-lg-12">
 				<div class="text-center">
-					<img class="img-center img-fluid avatar" src="public/images/heros/<?= $char['Avatar']; ?>.jpg">
+					<img class="img-center img-fluid avatar" src="<?= $char['Avatar']; ?>">
 				</div>
 			</div>
 

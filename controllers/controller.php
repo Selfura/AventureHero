@@ -15,7 +15,7 @@ use Aventurehero\models\PersoManager;
 function home() {
 	$newsManager = new NewsManager();
 	$lastNews = $newsManager->getLastNews();
-	
+
 	require('views/home.php');
 }
 
@@ -26,9 +26,13 @@ function login() {
 function incription() {
 	require('views/inscription.php');
 }
-function homelog() {
+function homelog($id_membre) {
 	$newsManager = new NewsManager();
 	$lastNews = $newsManager->getLastNews();
+
+	$persoManager = new PersoManager();
+	$char = $persoManager->getPerso($id_membre);
+
 	require('views/accueilco.php');
 }
 function rank($id_membre) {
@@ -58,7 +62,12 @@ function personnage($id_membre) {
 
 	require('views/personnage.php');
 }
-function mission() {
+function mission($id_mission) {
+	$aventuresManager = new AventuresManager();
+	$mission = $aventuresManager->getMission($id_mission);
+
+	//$donnees = $mission->fetch();
+
 	require('views/mission.php');
 }
 function prologue() {
@@ -70,12 +79,10 @@ function prologue() {
 	require('views/prologue.php');
 }
 
-function charcrea($ava_id) {
+function charcrea() {
 
 	$persoManager = new PersoManager();
-	$avatar = $persoManager->getAvatar($ava_id);
-
-	$avatar = isset($_POST['avatar']) ? $_POST['avatar'] : NULL;
+	$avatar = $persoManager->getAvatar();
 
 	require('views/creation_personnage.php');
 }
@@ -112,17 +119,18 @@ function connect($login)
 		if(password_verify($_POST['password'], $log['password'])) {
 
 			$_SESSION['login'] = $log['login'];
-			setcookie('login', $login, time() + 1800, null, null, false, true);
+			$_SESSION['id'] = $log['id'];
+			setcookie('login', $login, time() + 3600, null, null, false, true);
 
 			header('Location: ../aventurehero/index.php?action=homelog');
 		} else {
-		echo"<script type='text/javascript' alert('Mot de passe ou Identifiant erroné(s).');</script>";
-		header('Refresh: 0; url= ../aventurehero/index.php?action=login');
+		echo"<script type='text/javascript'> alert('Mot de passe ou Identifiant erroné(s).');</script>";
+		header('Refresh: 0; url= index.php?action=login');
 	}
 	} 
 	else {
 		echo"<script> alert('Mot de passe ou Identifiant erroné(s).');</script>";
-		header('Refresh: 0; url= ../aventurehero/index.php?action=login');
+		header('Refresh: 0; url= index.php?action=login');
 	}
 }
 
@@ -134,7 +142,7 @@ function logout() {
 
 	setcookie('login','', time()-10);
 
-	header('Location: ../aventurehero/index.php?action=accueil');
+	header('Location: index.php?action=accueil');
 }
 
 
@@ -148,7 +156,7 @@ function newNews($titre, $annonce) {
 	$newsManager = new NewsManager();
 
     $createNews = $newsManager->createNews($titre, $annonce);
-	header('Location: ../aventurehero/index.php?action=adm');
+	header('Location: index.php?action=adm');
 }
 //Lecture des Annonces
 
@@ -170,8 +178,13 @@ function createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe) {
 
 	session_start();
 	$persoManager = new PersoManager();
-	$createPerso = $persoManager->createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe);
+	$createPerso = $persoManager->createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe, $_SESSION['id']);
 
-	header('Location: ../aventurehero/index.php?action=accueilco');
+	if($createPerso === true) {
+		header('Location: index.php?action=accueilco');
+	} else {
+		throw new Exception("Impossible de créer le nouveau personnage.");
+		header('Refresh:2; url= index.php?action=char_creation');
+	}
 
 }

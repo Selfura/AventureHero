@@ -11,79 +11,22 @@
 					<p>
 						Choisissez l'avatar de votre personnage :<br />
 						<div class="d-flex">
+							<?php
+
+
+							while ($donnees = $avatar->fetch())
+							{
+							?>
 							<div>
-								<input type="radio" name="Avatar" value="1" id="avatar1" />
+								<input type="radio" name="Avatar" value="<?= $donnees['avatar']; ?>" />
 								<div class=" choix-ava">
-									<label for="1"><img class="img-center img-fluid avatar" src="<?= $avatar['avatar']; ?>"/></label>
+									<label for="1"><img class="img-center img-fluid avatar" src="<?= $donnees['avatar']; ?>"/></label>
 								</div>
 							</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar2" id="avatar2" />
-
-	      						<div class=" choix-ava">
-	      							<label for="avatar2"><img class="img-center img-fluid avatar" src="public/images/heros/avatar2.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar3" id="avatar3" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar3"><img class="img-center img-fluid avatar" src="public/images/heros/avatar3.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar4" id="avatar4" /> 
-	      						<div class=" choix-ava">
-	      							<label for="avatar4"><img class="img-center img-fluid avatar" src="public/images/heros/avatar4.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar5" id="avatar5" /> 
-	      						<div class=" choix-ava">
-	      							<label for="avatar5"><img class="img-center img-fluid avatar" src="public/images/heros/avatar5.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar6" id="avatar6" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar6"><img class="img-center img-fluid avatar" src="public/images/heros/avatar6.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar7" id="avatar7" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar7"><img class="img-center img-fluid avatar" src="public/images/heros/avatar7.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar8" id="avatar8" />
-	      						<div class=" choix-ava">
-	      						<label for="avatar8"><img class="img-center img-fluid avatar" src="public/images/heros/avatar8.jpg"/></label>
-	      						 </div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar9" id="avatar9" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar9"><img class="img-center img-fluid avatar" src="public/images/heros/avatar9.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar10" id="avatar10" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar10"><img class="img-center img-fluid avatar" src="public/images/heros/avatar10.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar12" id="avatar11" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar11"><img class="img-center img-fluid avatar" src="public/images/heros/avatar11.jpg"/></label>
-	      						</div>
-	      					</div>
-	      					<div>
-	      						<input type="radio" name="Avatar" value="avatar12" id="avatar12" />
-	      						<div class=" choix-ava">
-	      							<label for="avatar12"><img class="img-center img-fluid avatar" src="public/images/heros/avatar12.jpg"/></label>
-	      						</div>
-	      					</div>
+							<?php
+							} // Fin de la boucle des billets
+							$avatar->closeCursor();
+							?>
       					</div>
   					</p>
   					

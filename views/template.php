@@ -50,7 +50,7 @@
         }
 		?>
 		<div class="d-flex justify-content-center">
-		<a href="index.php?action=accueilback"><img src="public/images/logo.png" class="img-responsive logo img-fluid"></img></a>
+		<a href="index.php?action=accueilback"><img src="public/images/logo.png" class="img-responsive logo img-fluid" alt="Logo Hero Aventure"></a>
 		</div>
 
 

@@ -19,33 +19,26 @@
 						</div>
 					</div>
 				<div class="missions_choice">
-						<a href="index.php?action=mission"><div class="img_mission">
-							<div class="mission-item-caption">
-								<div class="portfolio-item-caption-content text-center text-white">
-									<p class="text-center">Mission 1</p>
+					<?php
+
+
+					while ($donnees = $missions->fetch())
+					{
+					?>
+						<a href="index.php?action=mission&amp;id=2">
+							<div class="img_mission">
+								<div class="mission-item-caption">
+									<div class="portfolio-item-caption-content text-center text-white">
+										<p class="text-center">Mission 1</p>
+									</div>
 								</div>
+								<img class="img-center img-fluid" src="public/images/mission_1.jpg">
 							</div>
-							<img class="img-center img-fluid" src="public/images/mission_1.jpg">
-						</div>
 						</a>
-						<div class="img_mission">
-							<div class="mission-item-caption">
-								<div class="portfolio-item-caption-content text-center text-white">
-									<p>Mission 2</p>
-								</div>
-							</div>
-							<img class="img-center img-fluid" src="public/images/mission_2.jpg">
-						</div>
-
-
-						<div class="img_mission">
-							<div class="mission-item-caption">
-								<div class="portfolio-item-caption-content text-center text-white">
-									<p>Mission 3</p>
-								</div>
-							</div>
-							<img class="img-center img-fluid" src="public/images/mission_3.jpg">
-						</div>
+					<?php
+					} // Fin de la boucle des missions
+					$missions->closeCursor();
+					?>
 				</div>
 			</div>
 		</div>

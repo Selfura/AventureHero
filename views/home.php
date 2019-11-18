@@ -32,13 +32,13 @@
 						<div class="input-group-append">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="" class="form-control input_user" value="" placeholder="Identifiant">
+						<input type="text" name="login" class="form-control input_user" value="" placeholder="Identifiant">
 					</div>
 					<div class="input-group mb-2">
 						<div class="input-group-append">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="" class="form-control input_pass" value="" placeholder="Mot de passe">
+						<input type="password" name="password" class="form-control input_pass" value="" placeholder="Mot de passe">
 					</div>
 					<button type="submit" name="connexion" class="btn login_btn">Se connecter</button>
 				</form>

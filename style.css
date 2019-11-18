@@ -561,6 +561,10 @@ a {
 	overflow: hidden;
 	font-family: BD_Cartoon;
 }
+.text_color {
+  color: #b30909;
+  overflow-wrap: break-word;
+}
 
 .img_chap .portfolio-item-caption {
     position: absolute;
@@ -605,6 +609,12 @@ a {
   }
   .img_chap {
     margin-top: 1em;
+  }
+
+}
+@media (max-width: 320px){
+  .selec-chap {
+  font-size: 0.8em;
   }
 
 }

@@ -12,30 +12,26 @@
 							<p>Mission 1</p>
 						</div>
 					</div>
-					<img class="img-center img-fluid" src="public/images/mission_1.jpg">
+					<img class="img-center img-fluid" src="<?= $mission['image']; ?>" alt="image mission">
 				</div>
 			</div>
 			<div class="block_mission">
-				<h1 class="text-center">Titre de la mission</h1>
-				<p>Homeoparty, un vilain qui tente de se faire une place dans le monde des vilains, bien que les méchants professionnel le considère comme étant une fraude, est devenu fou après avoir vu un jeune pharmacien du Limousin critiquer l'homeopathie, son produit de cœur !
-				Il a donc décidé d'envahir le Limousin pour en faire ce qu'il appelle « L'homeopatrie. »
+				<h1 class="text-center"><?= $mission['nom']; ?></h1>
+				<p><?= $mission['texte']; ?> </p>
+			</div>
+			<?php
 
-				Vous arrivez dans une petite ville de Corèze, un homme un peu mou avec des lunettes, ponctuant toutes ses phrases par « égné » vous accueille, nous l'appellerons François. Il vous annonce qu'un vil sacripan saccage les pharmacies de la ville à la recherche d'un certain Pharmacien. Mais comme ses recherches sont non concluantes, il ne le trouve pas. </p>
-			</div>
+					while ($donnees = $choix->fetch())
+				{
+			?>
 			<div class="d-flex justify-content-center mt-3 login_container">
-				<a href="<? ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous partez à la recherche du vilain.</button></a>
+				<a href="index.php?action=mission&amp;id=<?= $donnees['id_renvoi'] ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue"><?= $donnees['texte']; ?></button></a>
 			</div>
-			<div class="d-flex justify-content-center mt-3 login_container">
-				<a href="<? ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous discutez avec ce François, il vous rappelle vaguement quelqu'un, mais qui ?</button></a>
+			<?php
+				} // Fin de la boucle
+				$choix->closeCursor();
+			?>
 			</div>
-			<div class="d-flex justify-content-center mt-3 login_container">
-				<a href="<? ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous vous dites que finalement, l'homéopathie c'est pas si mal et vous retournez chez vous.</button></a>
-			</div>
-			<div class="d-flex justify-content-center mt-3 login_container">
-				<a href="<? ?>"class="cent"><button type="button" name="button" class="btn login_btn btn_prologue">Vous êtes à fond pour l'homéopathie et vous cherchez vous aussi cet  enquiquineur de pharmacien.
-				</button></a>
-			</div>
-		</div>
 	</div>
 </section>
 

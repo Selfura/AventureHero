@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors',1);
 
 require('controllers/controller.php');
 
@@ -28,7 +29,7 @@ if(isset($_GET['action'])) {
 		case 'homelog' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			homelog(isset($_SESSION['id']));
+			homelog($_SESSION['id']);
 		} else {
             header('Location: index.php?action=accueil');
         }
@@ -64,13 +65,55 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'mission' :
+		
+			if(isset($_COOKIE['login'])) {
+				session_start();
+				if ($_GET['id'] > 0 ){ 
+				mission(isset($_GET['id']));
+			} else {
+				throw new Exception("Le chapitre n'existe pas");
+				
+			}
+			} else {
+	            header('Location:index.php?action=accueil');
+	        
+        }
+			break;
+
+		case 'missionB' :
+		
+			if(isset($_COOKIE['login'])) {
+				session_start();
+				if ($_GET['id'] > 0 ){ 
+				missionB(isset($_GET['id']));
+			} else {
+				throw new Exception("Le chapitre n'existe pas");
+				
+			}
+			} else {
+	            header('Location:index.php?action=accueil');
+	        
+        }
+			break;
+
+		case 'suite' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			mission(isset($_GET['id']));
+			suite();
 		} else {
             header('Location:index.php?action=accueil');
         }
 			break;
+
+		case 'fin' :
+		if(isset($_COOKIE['login'])) {
+			session_start();
+			fin();
+		} else {
+            header('Location:index.php?action=accueil');
+        }
+			break;
+
 
 		case 'prologue' :
 		if(isset($_COOKIE['login'])) {
@@ -86,7 +129,7 @@ if(isset($_GET['action'])) {
 			session_start();
 			charcrea();
 		} else {
-            header('Location: index.php?action=accueil');
+            header('Location: index.php?action=homelog');
         }
         break;
 
@@ -163,5 +206,5 @@ else{
 catch(Exception $e) {
 
     echo 'Erreur : ' . $e->getMessage();
-    header('Refresh:3; url= ../aventurehero/index.php?action=accueil');
+    header('Location= index.php?action=accueil');
 }*/

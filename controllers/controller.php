@@ -1,5 +1,5 @@
 <?php 
-
+ini_set('display_errors',1);
 require("models/manager.php");
 require("models/membresManager.php");
 require("models/newsManager.php");
@@ -48,9 +48,14 @@ function contact() {
 	require('views/contact.php');
 }
 function aventure() {
+	$aventuresManager = new AventuresManager();
+	$chapitres = $aventuresManager->getChapitres();
+
 	require('views/aventure.php');
 }
 function missions() {
+	$aventuresManager = new AventuresManager();
+	$missions = $aventuresManager->getMissions();
 	require('views/missions.php');
 }
 function aide() {
@@ -62,14 +67,59 @@ function personnage($id_membre) {
 
 	require('views/personnage.php');
 }
+
 function mission($id_mission) {
 	$aventuresManager = new AventuresManager();
+
 	$mission = $aventuresManager->getMission($id_mission);
+	$choix = $aventuresManager->getChoix($id_mission);
 
-	//$donnees = $mission->fetch();
-
-	require('views/mission.php');
+	if($mission) {
+		require('views/mission.php');
+	} else {
+		throw new Exception("La mission n'existe pas.");
+		
+	}
 }
+
+function missionB($id_mission) {
+	$aventuresManager = new AventuresManager();
+
+	$missionB = $aventuresManager->getMissionB($id_mission);
+	$choix = $aventuresManager->getChoix($id_mission);
+
+	if($missionB) {
+		require('views/mission.php');
+	} else {
+		throw new Exception("La mission n'existe pas.");
+		
+	}
+}
+
+
+
+
+
+
+function suite() {
+	$aventuresManager = new AventuresManager();
+	$suite = $aventuresManager->getSuite();
+
+	$donnees = $suite->fetch();
+
+	require('views/suite.php');
+}
+
+function fin() {
+	$aventuresManager = new AventuresManager();
+	$fin = $aventuresManager->getFin();
+
+	$donnees = $fin->fetch();
+
+	require('views/fin.php');
+}
+
+
 function prologue() {
 	$aventuresManager = new AventuresManager();
 	$prologue = $aventuresManager->getPrologue();
@@ -122,7 +172,7 @@ function connect($login)
 			$_SESSION['id'] = $log['id'];
 			setcookie('login', $login, time() + 3600, null, null, false, true);
 
-			header('Location: ../aventurehero/index.php?action=homelog');
+			header('Location: index.php?action=homelog');
 		} else {
 		echo"<script type='text/javascript'> alert('Mot de passe ou Identifiant erroné(s).');</script>";
 		header('Refresh: 0; url= index.php?action=login');
@@ -181,7 +231,7 @@ function createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe) {
 	$createPerso = $persoManager->createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe, $_SESSION['id']);
 
 	if($createPerso === true) {
-		header('Location: index.php?action=accueilco');
+		header('Location: index.php?action=homelog');
 	} else {
 		throw new Exception("Impossible de créer le nouveau personnage.");
 		header('Refresh:2; url= index.php?action=char_creation');

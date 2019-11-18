@@ -13,9 +13,9 @@
 					
 					
 					<?php 
-						$charIsCreated = isset($_GET['id_membre']);
+						$charIsCreated = $char['id_membre'];
 
-						if(!$charIsCreated) {
+						if($charIsCreated) {
 							echo '
 							<h2> Continuer l\'aventure</h2>
 							<div class="blink"> <h4 class="selec-chap">Cliquez sur l\'image pour continuer</h4></div>
@@ -32,7 +32,7 @@
 				</div>
 				<div>
 					<br>
-				<h2 class="text-center"> Deniere News</h2>
+				<h2 class="text-center"> Derniere News</h2>
 				<br>
 				<div class="padding-news">
 					<?php

@@ -85,7 +85,7 @@ function mission($id_mission) {
 function missionB($id_mission) {
 	$aventuresManager = new AventuresManager();
 
-	$missionB = $aventuresManager->getMissionB($id_mission);
+	$missionB = $aventuresManager->getB($id_mission);
 	$choix = $aventuresManager->getChoix($id_mission);
 
 	if($missionB) {

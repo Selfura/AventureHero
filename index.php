@@ -71,6 +71,7 @@ if(isset($_GET['action'])) {
 				if ($_GET['id'] > 0 ){ 
 				mission(isset($_GET['id']));
 			} else {
+				header('Refresh: 1; url = index.php?action=aventure');
 				throw new Exception("Le chapitre n'existe pas");
 				
 			}

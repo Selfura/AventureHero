@@ -25,7 +25,7 @@
 					while ($donnees = $missions->fetch())
 					{
 					?>
-						<a href="index.php?action=mission&amp;id=2">
+						<a href="index.php?action=mission&amp;id=<?= $donnees['id'] ?>">
 							<div class="img_mission">
 								<div class="mission-item-caption">
 									<div class="portfolio-item-caption-content text-center text-white">

@@ -29,10 +29,10 @@
 							<div class="img_mission">
 								<div class="mission-item-caption">
 									<div class="portfolio-item-caption-content text-center text-white">
-										<p class="text-center">Mission 1</p>
+										<p class="text-center"><?= $donnees['nom']; ?></p>
 									</div>
 								</div>
-								<img class="img-center img-fluid" src="public/images/mission_1.jpg">
+								<img class="img-center img-fluid" src="<?= $donnees['image']; ?>">
 							</div>
 						</a>
 					<?php

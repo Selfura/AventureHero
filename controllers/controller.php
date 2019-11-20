@@ -82,20 +82,11 @@ function mission($id_mission) {
 	}
 }
 
-function missionB($id_mission) {
+function karma($id_choix, $karma) {
 	$aventuresManager = new AventuresManager();
 
-	$missionB = $aventuresManager->getB($id_mission);
-	$choix = $aventuresManager->getChoix($id_mission);
-
-	if($missionB) {
-		require('views/mission.php');
-	} else {
-		throw new Exception("La mission n'existe pas.");
-		
-	}
+	$karma = $aventuresManager->updateKarma($id_choix, $karma);
 }
-
 
 
 

@@ -96,6 +96,10 @@ class AventuresManager extends Manager {
 
 	}
 
+	
+
+	
+
 	public function updateSave($id_mission) {
 		$db = $this->dbConnect();
 		//sauvegarde de la progression
@@ -106,12 +110,12 @@ class AventuresManager extends Manager {
 		return $updateSave;
 	}
 
-	public function updateKarma($id_choix, $karma) {
+	public function updateKarma($id_membre, $karma) {
 		$db = $this->dbConnect();
 		//Modifie le Karma
 		$karma = $db->prepare('UPDATE apersonnages SET Karma = ? WHERE id = ?');
 
-		$updateKarma = $karma->execute(array($_POST['Karma'], $id));
+		$updateKarma = $karma->execute(array($_POST['Karma'], $id_membre));
 
 		return $updateKarma;
 	}

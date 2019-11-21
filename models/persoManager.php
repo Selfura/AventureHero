@@ -64,4 +64,23 @@ class PersoManager extends Manager {
 		return $req;
 	}
 
+	public function getProgression(){
+		$db = $this->dbConnect();
+
+		$req = $db->prepare('SELECT Progression FROM apersonnages WHERE id_membre = ?');
+		$req->execute(array($_SESSION['id']));
+
+		return $req->fetch();
+	}
+
+	public function updateKarma($id_choix){
+		$db = $this->dbConnect();
+
+		$req = $db->prepare('UPDATE apersonnages aP, achoix C SET aP.Karma = C.karma + aP.Karma WHERE aP.id_membre = ? && C.id = ?');
+
+		$updateKarma = $req->execute(array($_SESSION['id'], $id_choix));
+
+		return $updateKarma;
+	}
+
 }

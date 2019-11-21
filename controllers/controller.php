@@ -70,7 +70,12 @@ function personnage($id_membre) {
 
 function mission($id_mission) {
 	$aventuresManager = new AventuresManager();
+	$persoManager = new PersoManager();
 
+	//$progression = json_decode($persoManager->getProgression()[0])->choix;
+
+
+	$updateKarma = $persoManager->updateKarma($id_mission);
 	$mission = $aventuresManager->getMission($id_mission);
 	$choix = $aventuresManager->getChoix($id_mission);
 
@@ -82,34 +87,11 @@ function mission($id_mission) {
 	}
 }
 
-function karma($id_choix, $karma) {
+function karma($id_membre, $karma) {
 	$aventuresManager = new AventuresManager();
 
-	$karma = $aventuresManager->updateKarma($id_choix, $karma);
+	$karma = $aventuresManager->updateKarma($id_membre, $karma, $_SESSION['id']);
 }
-
-
-
-
-
-function suite() {
-	$aventuresManager = new AventuresManager();
-	$suite = $aventuresManager->getSuite();
-
-	$donnees = $suite->fetch();
-
-	require('views/suite.php');
-}
-
-function fin() {
-	$aventuresManager = new AventuresManager();
-	$fin = $aventuresManager->getFin();
-
-	$donnees = $fin->fetch();
-
-	require('views/fin.php');
-}
-
 
 function prologue() {
 	$aventuresManager = new AventuresManager();

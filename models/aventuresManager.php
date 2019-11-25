@@ -72,18 +72,6 @@ class AventuresManager extends Manager {
 		return $mission;
 	}
 
-		public function getB($id_mission){
-		$db = $this->dbConnect();
-		//récupérer une mission via son id.
-
-		$req = $db->prepare('SELECT id, chap_id, id_choix, nom, image, texte, niveau  FROM amissions WHERE id = ?');
-		$req->execute(array($id_mission));
-
-		$missionB = $req->fetch();
-
-		return $missionB;
-	}
-
 
 	public function getChoix($id_mission) {
 		$db =$this->dbConnect();
@@ -94,30 +82,6 @@ class AventuresManager extends Manager {
 
 		return $choix;
 
-	}
-
-	
-
-	
-
-	public function updateSave($id_mission) {
-		$db = $this->dbConnect();
-		//sauvegarde de la progression
-		$save = $db->prepare('UPDATE apersonnages SET Progression = ? WHERE id = ?');
-
-		$updateSave = $save->execute(array($_POST['progression'], $id));
-
-		return $updateSave;
-	}
-
-	public function updateKarma($id_membre, $karma) {
-		$db = $this->dbConnect();
-		//Modifie le Karma
-		$karma = $db->prepare('UPDATE apersonnages SET Karma = ? WHERE id = ?');
-
-		$updateKarma = $karma->execute(array($_POST['Karma'], $id_membre));
-
-		return $updateKarma;
 	}
 
 }

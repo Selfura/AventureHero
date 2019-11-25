@@ -84,10 +84,10 @@ if(isset($_GET['action'])) {
 		case 'choix' :
 		if(isset($_COOKIE['login'])) {
 				session_start();
-				if (isset($_GET['id']) && $_GET['id'] > 0 ){ 
-				mission(($_GET['id']));
+				if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['mission_id']) && $_GET['mission_id'] > 0){ 
+				choixMission(($_GET['id']), $_GET['mission_id']);
 			} else {
-				header('Refresh: 1; url = index.php?action=aventure');
+				//header('Refresh: 1; url = index.php?action=aventure');
 				throw new Exception("Le chapitre n'existe pas");
 				
 			}
@@ -96,6 +96,7 @@ if(isset($_GET['action'])) {
 	        
         }
 			break;
+
 
 		case 'prologue' :
 		if(isset($_COOKIE['login'])) {

@@ -72,12 +72,26 @@ function mission($id_mission) {
 	$aventuresManager = new AventuresManager();
 	$persoManager = new PersoManager();
 
-	//$progression = json_decode($persoManager->getProgression()[0])->choix;
+	$progression = json_decode($persoManager->getProgression()[0])->choix;
 
+	$mission = $aventuresManager->getMission($progression);
+	$choix = $aventuresManager->getChoix($progression);
 
-	$updateKarma = $persoManager->updateKarma($id_mission);
-	$mission = $aventuresManager->getMission($id_mission);
-	$choix = $aventuresManager->getChoix($id_mission);
+	if($mission) {
+		require('views/mission.php');
+	} else {
+		throw new Exception("La mission n'existe pas.");
+		
+	}
+}
+
+function choixMission($id_choix, $id_renvoi){
+	$aventuresManager = new AventuresManager();
+	$persoManager = new PersoManager();
+
+	$updateKarma = $persoManager->updateKarma($id_choix);
+	$mission = $aventuresManager->getMission($id_renvoi);
+	$choix = $aventuresManager->getChoix($id_renvoi);
 
 	if($mission) {
 		require('views/mission.php');

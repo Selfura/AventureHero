@@ -40,7 +40,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'rank' :
-			rank(isset($_GET['id_membre']));
+			rank();
 			break;
 
 		case 'contact' :

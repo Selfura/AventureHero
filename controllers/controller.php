@@ -35,12 +35,10 @@ function homelog($id_membre) {
 
 	require('views/accueilco.php');
 }
-function rank($id_membre) {
+function rank() {
 
 	$persoManager = new PersoManager();
-	$personnages = $persoManager->getPerso($id_membre);
-
-	$personnages = isset($_POST['id_membre']) ? $_POST['id_membre'] : NULL;
+	$personnages = $persoManager->getPersos();
 
 	require('views/rank.php');
 }

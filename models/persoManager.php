@@ -10,7 +10,7 @@ class PersoManager extends Manager {
 
 	public function getPersos() {
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, Nom, Karma, Age, Sexe, Progression, id_membre, Avatar FROM apersonnages ORDER BY Karma DESC');
+		$req = $db->query('SELECT id, Nom, Karma, Age, Pouvoir, Sexe, Progression, id_membre, Avatar FROM apersonnages ORDER BY Karma DESC');
 		return $req;
 
 	}
@@ -19,7 +19,7 @@ class PersoManager extends Manager {
 		$db = $this->dbConnect();
 		// on crée un nouveau post
 
-		$perso = $db->prepare('INSERT INTO aPersonnages(Avatar, Nom, Pouvoir, Age, Sexe, id_membre) VALUES (?, ?, ?, ?, ?, ?)');
+		$perso = $db->prepare('INSERT INTO apersonnages(Avatar, Nom, Pouvoir, Age, Sexe, id_membre) VALUES (?, ?, ?, ?, ?, ?)');
 		$createPerso = $perso->execute(array($Avatar, $Nom, $Pouvoir, $Age, $Sexe, $id_membre));
 
 		return $createPerso;

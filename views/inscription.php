@@ -9,7 +9,7 @@
 			<div class="user_card">
 				<div class=" justify-content-center form_container">
 					<form method="POST" onSubmit="return validate()">
-						<h2 class="text-center create-account">Créer un compte</h2>
+						<h2 class="text-center create-account">Creer un compte</h2>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>

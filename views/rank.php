@@ -18,16 +18,27 @@
 		            </tr>
 		          </thead>
 		          <tbody >
+		          	<?php
+
+
+					while ($donnees = $personnages->fetch())
+					{
+					?>
 		            <tr>
+
 		            	<td>
 			              	<div>
-								<img class="img-center img-fluid rank_avatar" src="public/images/heros/avatar1.jpg">
+								<img class="img-center img-fluid rank_avatar" src="<?= $donnees['Avatar']; ?>">
 							</div>
 						</td>
-		            	<td>Mystique/Force/Esprit/Elementaire</td>
-		            	<td>Jean Hubert Spitz</td>
-		            	<td>666</td>
+		            	<td><?= $donnees['Pouvoir']; ?></td>
+		            	<td><?= $donnees['Nom']; ?></td>
+		            	<td><?= $donnees['Karma']; ?></td>
 		            </tr>
+		            <?php
+					} // Fin de la boucle des missions
+					$personnages->closeCursor();
+					?>
 		          </tbody>
 		        </table>
 		      </div><!--end of .table-responsive-->

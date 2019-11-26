@@ -17,20 +17,21 @@
 		</nav>
 
 
-		<div class="container section" id="newchap">
+		<div class="container section" id="newchap" style="display:block;">
 			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">	
 
 
-				<h1 class="title">Créer un Nouveau Chapitre</h1>
+				<h1 class="title">Creer un Nouveau Chapitre</h1>
 
 				<!-- Short introductory (optional) -->
-				<form>
-					<input type="text" name="Nom_chap" class="form-control" value="" placeholder="Nom du Chapitre" required>
-					<input class="form-control" type="text" placeholder="Numero du Chapitre" name="Numero du Chapitre" required>
+				<form method="POST">
+					<input type="text" name="Nom_chap" class="form-control nomchap" value="" placeholder="Nom du Chapitre" required>
+					<input class="form-control numchap" type="text" placeholder="Numero du Chapitre" name="Numero du Chapitre" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
 					Image du Chapitre : <input type="file" name="picture" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
 					Image Grisée : <input type="file" name="picture" required>
+					<button type="submit" name="connexion" class="btn login_btn">Envoyer</button>
 
 				</form>
 
@@ -38,13 +39,15 @@
 			</div> <!-- /col -->
 		</div> <!-- /row -->	
 		
-		<div class="container section" id="mission_s">
+		<div class="container section" id="mission_s"  style="display:none;">
 			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">		
 				<br>
+				<h2 class="text-center title">Nouvelle Mission</h2>
 				<form>
-					<input type="text" name="numero_mission" class="form-control" value="" placeholder="Numero de la mission" required>
-					<input class="form-control" type="text" placeholder="Nom de la mission" name="name_mission" required>
-					<input class="form-control" type="text" placeholder="Chapitre lié à la mission" name="chap_mission" required>
+					<input type="text" name="numero_mission" class="form-control nummission" value="" placeholder="Numero de la mission" required>
+					<input class="form-control nommission" type="text" placeholder="Nom de la mission" name="name_mission" required>
+					<input class="form-control chapnum" type="text" placeholder="Chapitre lié à la mission" name="chap_mission" required>
+					<input class="form-control lvlmission" type="text" placeholder="Niveau de la mission" name="niveau_mission" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
 					Image de la mission : <input type="file" name="picture" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
@@ -54,44 +57,17 @@
 					<p> Spitch de la mission </p>
 					<textarea placeholder="Entrez votre message ici..." class="form-control tinymce" rows="7" name="message" required></textarea>
 
-					<input type="text" name="choix1" class="form-control" value="" placeholder="Choix 1">
-					<input type="text" name="choix2" class="form-control" value="" placeholder="Choix 2">
-					<input type="text" name="choix3" class="form-control" value="" placeholder="Choix 3">
-					<input type="text" name="choix4" class="form-control" value="" placeholder="Choix 4">
+					<input type="text" name="choix1" class="form-control choix" value="" placeholder="Choix 1">
+					<input type="text" name="choix2" class="form-control choix" value="" placeholder="Choix 2">
+					<input type="text" name="choix3" class="form-control choix" value="" placeholder="Choix 3">
+					<input type="text" name="choix4" class="form-control choix" value="" placeholder="Choix 4">
 
+					<div class="d-flex justify-content-center mt-3 login_container">
+						<button type="button" name="button" class="btn login_btn">Envoyer</button>
+					</div>
 				</form>
-				<p class="tagline">
-					Numero de la mission :<br>
-					Nom de la mission :<br>
-					Image de la mission :<br>
-					Image mission Grisée :<br>
-				</p>
-				<p> Spitch de la mission </p>
-				<textarea placeholder="Entrez votre message ici..." class="form-control tinymce" rows="7" name="message" required></textarea>
-
-				<input type="text" name="choix1" class="form-control" value="" placeholder="Choix 1">
-				<input type="text" name="choix2" class="form-control" value="" placeholder="Choix 2">
-				<input type="text" name="choix3" class="form-control" value="" placeholder="Choix 3">
-				<input type="text" name="choix4" class="form-control" value="" placeholder="Choix 4">
 
 
-				<p class="tagline">
-					Numero de la mission :<br>
-					Nom de la mission :<br>
-					Image de la mission :<br>
-					Image mission Grisée :<br>
-				</p>
-				<p> Spitch de la mission </p>
-				<textarea placeholder="Entrez votre message ici..." class="form-control tinymce" rows="7" name="message" required></textarea>
-
-				<input type="text" name="choix1" class="form-control" value="" placeholder="Choix 1">
-				<input type="text" name="choix2" class="form-control" value="" placeholder="Choix 2">
-				<input type="text" name="choix3" class="form-control" value="" placeholder="Choix 3">
-				<input type="text" name="choix4" class="form-control" value="" placeholder="Choix 4">
-
-				<div class="d-flex justify-content-center mt-3 login_container">
-					<button type="button" name="button" class="btn login_btn">Envoyer</button>
-				</div>
 
 			</div> <!-- /col -->
 		</div> <!-- /row -->	
@@ -99,14 +75,14 @@
 	
 
 
-		<div class="container section" id="annonce">
+		<div class="container section" id="annonce"  style="display:none;">
 	
-			<h2 class="text-center title">Créer une Annonce</h2>
+			<h2 class="text-center title">Nouvelle Annonce</h2>
 			<div class="row">
 				<div class="col-sm-12">  
 					<form method="POST" action="index.php?action=newNews">  
-						<input type="text" name="titre" class="form-control" value="" placeholder="Titre de l'annonce" required>
-						<textarea placeholder="Entrez la News ici..." class="form-control tinymce" rows="7" name="annonce" required></textarea>
+						<input type="text" name="titre" class="form-control titleannonce" value="" placeholder="Titre de l'annonce" required>
+						<textarea placeholder="Entrez la News ici..." class="form-control tinymce titleannonce" rows="7" name="annonce" required></textarea>
 						<div class="d-flex justify-content-center mt-3 login_container">
 							<button type="submit" class="btn login_btn">Envoyer</button>
 						</div>
@@ -118,7 +94,7 @@
 		</div>
 
 
-		<div class="container section" id="membres">
+		<div class="container section" id="membres"  style="display:none;">
 		
 			<h2 class="text-center title">Membres</h2>
 			<div class="table-responsive">

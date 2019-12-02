@@ -34,4 +34,30 @@ class MembresManager extends Manager {
 		return $logAdmin;
 	}
 
+	public function newMembre($login, $password, $mail) {
+		$db = $this->dbConnect();
+
+		$req = $db->prepare('INSERT INTO amembres(login, password, validation, mail) VALUES (?, ?, 1, ?)');
+
+		$newMembre = $req->execute(array($login, PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT), $mail));
+
+		return $newMembre;
+	}
+
+	public function membreexist() {
+		$db = $this->dbConnect();
+
+		$req = $db->query('SELECT login FROM amembres WHERE login= "'. $_GET['pseudo'] .'"');
+
+		$login = $req->fetch();
+
+		if (strtolower($_GET['pseudo']) == strtolower($login['login']))
+            {
+                $erreur = "Ce nom d'utilisateur est déjà utilisé.";
+            }
+
+        return $login;
+
+	}
+
 }

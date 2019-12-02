@@ -1,4 +1,4 @@
-<?php 
+<?php  
 ini_set('display_errors',1);
 require("models/manager.php");
 require("models/membresManager.php");
@@ -35,10 +35,12 @@ function homelog($id_membre) {
 
 	require('views/accueilco.php');
 }
-function rank() {
+function rank($id_membre) {
 
 	$persoManager = new PersoManager();
-	$personnages = $persoManager->getPersos();
+	$personnages = $persoManager->getPerso($id_membre);
+
+	$personnages = isset($_POST['id_membre']) ? $_POST['id_membre'] : NULL;
 
 	require('views/rank.php');
 }
@@ -67,37 +69,90 @@ function personnage($id_membre) {
 }
 
 function mission($id_mission) {
-	$aventuresManager = new AventuresManager();
-	$persoManager = new PersoManager();
+	
 
-	$progression = json_decode($persoManager->getProgression()[0])->choix;
+	if(!empty($_SESSION['choixPrecedents'])){
+		$progression  = end($_SESSION["choixPrecedents"]);
 
-	$mission = $aventuresManager->getMission($progression);
-	$choix = $aventuresManager->getChoix($progression);
+		choixMission($progression['choix'], $progression['renvoi'], true);
 
-	if($mission) {
-		require('views/mission.php');
-	} else {
-		throw new Exception("La mission n'existe pas.");
-		
+	}else {
+		$persoManager = new PersoManager();
+		$progression = json_decode($persoManager->getProgression()[0]);
+		choixMission($progression->choix, $progression->renvoi, true);
 	}
+
+	
+
 }
 
-function choixMission($id_choix, $id_renvoi){
-	$aventuresManager = new AventuresManager();
-	$persoManager = new PersoManager();
+function choixMission($id_choix, $id_renvoi, $chargement = false){
+	
+	$action = array("choix" => $id_choix, "renvoi" => $id_renvoi);
 
-	$updateKarma = $persoManager->updateKarma($id_choix);
-	$mission = $aventuresManager->getMission($id_renvoi);
-	$choix = $aventuresManager->getChoix($id_renvoi);
+	$estUneActionPermise = isset($_SESSION["actionsPossibles"]) && in_array($action, $_SESSION["actionsPossibles"]);
+	$estUnChoixPrecedent = isset($_SESSION["choixPrecedents"]) && in_array($action, $_SESSION['choixPrecedents']);
+	$estUnePartieChargee = $chargement === true;
 
-	if($mission) {
-		require('views/mission.php');
-	} else {
-		throw new Exception("La mission n'existe pas.");
-		
+	if($estUneActionPermise || $estUnChoixPrecedent || $estUnePartieChargee){
+
+		$aventuresManager = new AventuresManager();
+		$persoManager = new PersoManager();
+
+		if($estUneActionPermise){
+
+			if(isset($_SESSION['choixTemporaire'])){
+				$_SESSION["choixPrecedents"][] = $_SESSION['choixTemporaire'];
+			}
+
+			$_SESSION['choixTemporaire'] = $action;		
+
+			$updateKarma = $persoManager->updateKarma($id_choix);
+			
+		}
+		else {
+
+			if(isset($_SESSION["choixPrecedents"]) && $action == end($_SESSION["choixPrecedents"])){
+				
+				$updateKarma = $persoManager->updateKarma($_SESSION['choixTemporaire']['choix'], true);
+				$_SESSION['choixTemporaire'] = array_pop($_SESSION["choixPrecedents"]);
+
+			}
+
+			if($estUnePartieChargee){
+				$_SESSION["choixPrecedents"] = [];
+				$_SESSION['choixTemporaire'] = $action;
+			}
+			
+		}
+
+		$mission = $aventuresManager->getMission($id_renvoi);
+		$choix = $aventuresManager->getChoix($id_renvoi);
+
+		$_SESSION["actionsPossibles"] = [];
+
+		if($mission) {
+
+			$progression = json_decode($persoManager->getProgression()[0]);
+			$progression->choix = $id_choix;
+			$progression->renvoi = $id_renvoi;
+
+			$persoManager->updateProgression(json_encode($progression));
+
+			require('views/mission.php');
+
+		} else {
+			throw new Exception("La mission n'existe pas.");	
+		}
+
 	}
+	else {
+		mission(null);
+	}
+
+
 }
+
 
 function karma($id_membre, $karma) {
 	$aventuresManager = new AventuresManager();
@@ -179,6 +234,19 @@ function logout() {
 
 	header('Location: index.php?action=accueil');
 }
+
+
+// Inscription 
+
+function newMembre($login, $password, $mail) {
+
+	$membresManager = new MembresManager();
+
+	$newMembre = $membresManager->newMembre($login, $password, $mail);
+
+	header('Location: index.php?action=accueilco');
+}
+
 
 
 /************* ANNONCES ***************** 

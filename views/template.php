@@ -62,7 +62,6 @@
 		?>
 		<script src="public/js/validate.js"></script>
 		<script src="public/js/adm_menu.js"></script>
-		<script src="public/js/slidertuto.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	</body>

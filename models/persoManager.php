@@ -10,7 +10,7 @@ class PersoManager extends Manager {
 
 	public function getPersos() {
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, Nom, Karma, Age, Pouvoir, Sexe, Progression, id_membre, Avatar FROM apersonnages ORDER BY Karma DESC');
+		$req = $db->query('SELECT id, Nom, Karma, Age, Sexe, Progression, id_membre, Avatar FROM apersonnages ORDER BY Karma DESC');
 		return $req;
 
 	}
@@ -73,10 +73,20 @@ class PersoManager extends Manager {
 		return $req->fetch();
 	}
 
-	public function updateKarma($id_choix){
+	public function updateProgression($progression){
 		$db = $this->dbConnect();
 
-		$req = $db->prepare('UPDATE apersonnages aP, achoix C SET aP.Karma = C.karma + aP.Karma WHERE aP.id_membre = ? && C.id = ?');
+		$update = $db->prepare('UPDATE apersonnages SET Progression = ? WHERE id_membre = ?');
+
+		$update->execute(array($progression, $_SESSION['id']));
+	}
+
+	public function updateKarma($id_choix, $annulation = false){
+		$db = $this->dbConnect();
+
+		$signe = $annulation ? '-' : '+';
+
+		$req = $db->prepare('UPDATE apersonnages aP, achoix C SET aP.Karma = aP.Karma '.$signe.' C.karma WHERE aP.id_membre = ? && C.id = ?');
 
 		$updateKarma = $req->execute(array($_SESSION['id'], $id_choix));
 

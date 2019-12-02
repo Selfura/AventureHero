@@ -102,7 +102,7 @@
 		          <thead>
 		            <tr>
 		              <th>Nom des Membres</th>
-		              <th>Nom du Personnages</th>
+		              <th>Nom du Personnage</th>
 		              <th>Supprimer le Membre</th>
 		            </tr>
 		          </thead>
@@ -127,6 +127,15 @@
 
 	</div>
 </section>
+
+
+<script>
+	$(function() {
+		$.get('index.php', function(amembres){
+			alert(amembres);
+		});
+	});
+</script>
 
 <?php $content = ob_get_clean(); ?>
 

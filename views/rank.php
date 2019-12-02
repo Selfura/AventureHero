@@ -28,7 +28,7 @@
 
 		            	<td>
 			              	<div>
-								<img class="img-center img-fluid rank_avatar" src="<?= $donnees['Avatar']; ?>">
+								<img class="img-center img-fluid rank_avatar" src="<?= $donnees['Avatar']; ?>" alt="avatar">
 							</div>
 						</td>
 		            	<td><?= $donnees['Pouvoir']; ?></td>

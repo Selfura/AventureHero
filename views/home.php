@@ -15,7 +15,7 @@
 				{
 			?>
 					<h2 class="text-center"><?= htmlspecialchars($donnees['titre']); ?></h2>
-					<p> <?= substr(($donnees['annonce']), 0, 800).'...'; ?></p>
+					<div> <?= substr(($donnees['annonce']), 0, 800).'...'; ?></div>
 					<p><?= $donnees['date_creation_fr']; ?></p>
 				</div>
 			<?php
@@ -42,7 +42,7 @@
 					</div>
 					<button type="submit" name="connexion" class="btn login_btn">Se connecter</button>
 				</form>
-					<a href="index.php?action=inscription"><button type="submit" name="inscription" class="btn login_btn">S'inscrire</button></a>
+					<a href="index.php?action=inscription"><p class="btn login_btn">S'inscrire</p></a>
 			</div>
 		</div>
 
@@ -91,6 +91,8 @@
 
 	</div>
 </section>
+
+<script src="public/js/slidertuto.js"></script>
 
 
 

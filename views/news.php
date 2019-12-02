@@ -16,7 +16,7 @@
 				{
 				?>
 				<h2 class="text-center"> <?= htmlspecialchars($donnees['titre']); ?></h2>
-				<p> <?= (($donnees['annonce'])); ?></p>
+				<div> <?= (($donnees['annonce'])); ?></div>
 				<p><?= $donnees['date_creation_fr']; ?></p>
 				<?php
 				} 

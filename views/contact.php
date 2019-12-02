@@ -13,7 +13,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control" value="" placeholder="Nom">
+							<input type="text" name="name" class="form-control" value="" placeholder="Nom">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
@@ -26,7 +26,6 @@
 				</div>
 				<div class="d-flex justify-content-center mt-3 login_container">
 					<button type="button" name="button" class="btn login_btn">Envoyer</button>
-				</div>
 				</div>
 			</div>
 		</div>

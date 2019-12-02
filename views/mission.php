@@ -23,9 +23,10 @@
 
 					while ($donnees = $choix->fetch())
 				{
+					$_SESSION["actionsPossibles"][] = array("choix" => $donnees['id'], "renvoi" => $donnees['id_renvoi']);
 			?>
 			<div class="d-flex justify-content-center mt-3 login_container">
-				<a href="index.php?action=choix&amp;id=<?= $donnees['id'] ?>&amp;mission_id=<?= $donnees['id_renvoi'] ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue"><?= $donnees['texte']; ?></button></a>
+				<a href="index.php?action=choix&amp;id=<?= $donnees['id'] ?>&amp;missionId=<?= $donnees['id_renvoi'] ?>" class="cent"><button type="button" name="button" class="btn login_btn btn_prologue"><?= $donnees['texte']; ?></button></a>
 			</div>
 			<?php
 				} // Fin de la boucle

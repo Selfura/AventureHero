@@ -26,6 +26,14 @@ if(isset($_GET['action'])) {
 			incription();
 			break;
 
+		case 'inscriptionfini':
+
+			newMembre($_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
+
+			 header('Location: index.php?action=accueil');
+
+			break;
+
 		case 'homelog' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
@@ -40,7 +48,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'rank' :
-			rank();
+			rank(isset($_GET['id_membre']));
 			break;
 
 		case 'contact' :
@@ -84,8 +92,8 @@ if(isset($_GET['action'])) {
 		case 'choix' :
 		if(isset($_COOKIE['login'])) {
 				session_start();
-				if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['mission_id']) && $_GET['mission_id'] > 0){ 
-				choixMission(($_GET['id']), $_GET['mission_id']);
+				if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['missionId']) && $_GET['missionId'] > 0){ 
+				choixMission(($_GET['id']), $_GET['missionId']);
 			} else {
 				//header('Refresh: 1; url = index.php?action=aventure');
 				throw new Exception("Le chapitre n'existe pas");
@@ -96,7 +104,6 @@ if(isset($_GET['action'])) {
 	        
         }
 			break;
-
 
 		case 'prologue' :
 		if(isset($_COOKIE['login'])) {
@@ -159,7 +166,7 @@ if(isset($_GET['action'])) {
         case 'accueilback':
         if(isset($_COOKIE['login'])) {
 			$_SESSION['login'] = $_COOKIE['login'];
-			homelog();
+			homelog($_SESSION['login']);
 		} else {
             home();
         }
@@ -180,6 +187,13 @@ if(isset($_GET['action'])) {
             throw new Exception("Les champs doivent tous être remplis.");
         }
         break;
+	}
+
+	if($_GET['action'] !== "mission" && $_GET['action'] !== "choix"){
+		if(session_status() == PHP_SESSION_ACTIVE && isset($_SESSION["choixPrecedents"]) && isset($_SESSION['choixTemporaire'])){
+			$_SESSION["choixPrecedents"] = [];
+			$_SESSION['choixTemporaire'] = [];
+		}
 	}
 }
 else{

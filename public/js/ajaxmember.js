@@ -4,7 +4,9 @@
 
       let pseudo = $('#pseudo').val();
       $.get(
-        'membresManager.php', {pseudo: pseudo}, function(data){
+        'index.php?action=inscriptionfini',
+        {pseudo: pseudo},
+        function(data){
            if(data === "1"){ 
             $('#pseudo').next("#erreur").fadeIn().text('Pseudo Indisponible');
             $('#erreur').next('#ok').fadeOut();

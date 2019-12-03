@@ -38,6 +38,12 @@ function verifPseudo($login) {
                 $erreur = "Ce nom d'utilisateur est déjà utilisé.";
             }
 
+    else if ($login) {
+		echo  1; // "1" est valide
+	} else {
+		echo 0;
+	}
+
 }
 
 function homelog($id_membre) {
@@ -95,7 +101,6 @@ function mission($id_mission) {
 		$progression = json_decode($persoManager->getProgression()[0]);
 		choixMission($progression->choix, $progression->renvoi, true);
 	}
-
 	
 
 }

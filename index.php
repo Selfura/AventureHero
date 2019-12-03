@@ -28,7 +28,6 @@ if(isset($_GET['action'])) {
 
 		case 'inscriptionfini':
 
-
 			verifPseudo(isset($_GET['login']));	
 			newMembre($_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
 

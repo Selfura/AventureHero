@@ -50,9 +50,6 @@ class MembresManager extends Manager {
 		$req = $db->query('SELECT login FROM amembres WHERE login= "'. $_GET['pseudo'] .'"');
 
 		$login = $req->fetch($login);
-
-        return $login;
-
 	}
 
 }

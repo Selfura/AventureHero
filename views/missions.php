@@ -20,7 +20,7 @@
 					</div>
 				<div class="missions_choice">
 					<?php
-
+					
 
 					while ($donnees = $missions->fetch())
 					{

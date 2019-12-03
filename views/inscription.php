@@ -14,8 +14,10 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="pseudo" id="pseudo" class="form-control input_user" placeholder="Identifiant" required>
+							<input type="text" name="login" id="pseudo" class="form-control input_user" placeholder="Identifiant" required>
 						</div>
+							<span id="erreur"></span>
+		              		<span id="ok"></span>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -48,6 +50,9 @@
 			</div>
 		</div>
 		</section>
+
+
+<script src="public/js/ajaxmember.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 

@@ -44,17 +44,12 @@ class MembresManager extends Manager {
 		return $newMembre;
 	}
 
-	public function membreexist() {
+	public function membreexist($login) {
 		$db = $this->dbConnect();
 
 		$req = $db->query('SELECT login FROM amembres WHERE login= "'. $_GET['pseudo'] .'"');
 
-		$login = $req->fetch();
-
-		if (strtolower($_GET['pseudo']) == strtolower($login['login']))
-            {
-                $erreur = "Ce nom d'utilisateur est déjà utilisé.";
-            }
+		$login = $req->fetch($login);
 
         return $login;
 

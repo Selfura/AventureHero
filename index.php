@@ -28,6 +28,8 @@ if(isset($_GET['action'])) {
 
 		case 'inscriptionfini':
 
+
+			verifPseudo(isset($_GET['login']));	
 			newMembre($_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
 
 			 header('Location: index.php?action=accueil');
@@ -151,7 +153,7 @@ if(isset($_GET['action'])) {
             connect($_POST['login']);
         }
         else {
-            header('Location: index.php?action=accueil');
+            header('Location: index.php?action=login');
         }
         break;
 

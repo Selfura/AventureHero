@@ -10,7 +10,8 @@
 		<nav class="adm_menu">
 			<ul class="tab-group" role="menu">
 				<li><a href="#newchap" class="active">Nouveau Chapitre</a></li>
-				<li><a href="#mission_s">Nouvelle Mission</a></li>
+				<li><a href="#mission_s">Nouvelles Missions</a></li>
+				<li><a href="#choix">Nouveaux Choix</a></li>
 				<li><a href="#annonce">Annonce</a></li>
 				<li><a href="#membres">Membres</a></li>
 			</ul>
@@ -29,8 +30,6 @@
 					<input class="form-control numchap" type="text" placeholder="Numero du Chapitre" name="Numero du Chapitre" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
 					Image du Chapitre : <input type="file" name="picture" required>
-					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
-					Image Grisée : <input type="file" name="picture" required>
 					<button type="submit" name="connexion" class="btn login_btn">Envoyer</button>
 
 				</form>
@@ -42,25 +41,40 @@
 		<div class="container section" id="mission_s"  style="display:none;">
 			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">		
 				<br>
-				<h2 class="text-center title">Nouvelle Mission</h2>
-				<form>
+				<h2 class="text-center title">Nouvelles Missions</h2>
+				<form method="POST">
 					<input type="text" name="numero_mission" class="form-control nummission" value="" placeholder="Numero de la mission" required>
 					<input class="form-control nommission" type="text" placeholder="Nom de la mission" name="name_mission" required>
 					<input class="form-control chapnum" type="text" placeholder="Chapitre lié à la mission" name="chap_mission" required>
 					<input class="form-control lvlmission" type="text" placeholder="Niveau de la mission" name="niveau_mission" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
 					Image de la mission : <input type="file" name="picture" required>
-					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
-					Image Grisée : <input type="file" name="picture" required>
 
 				
 					<p> Spitch de la mission </p>
 					<textarea placeholder="Entrez votre message ici..." class="form-control tinymce" rows="7" name="message" required></textarea>
 
+					<div class="d-flex justify-content-center mt-3 login_container">
+						<button type="button" name="button" class="btn login_btn">Envoyer</button>
+					</div>
+				</form>
+
+
+
+			</div> <!-- /col -->
+		</div> <!-- /row -->	
+
+		<div class="container section" id="choix"  style="display:none;">
+			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">		
+				<br>
+				<h2 class="text-center title">Nouveaux Choix</h2>
+				<form method="POST">
+					<input type="text" name="numero_mission" class="form-control nummission" value="" placeholder="Numero de la mission" required>
+
 					<input type="text" name="choix1" class="form-control choix" value="" placeholder="Choix 1">
-					<input type="text" name="choix2" class="form-control choix" value="" placeholder="Choix 2">
-					<input type="text" name="choix3" class="form-control choix" value="" placeholder="Choix 3">
-					<input type="text" name="choix4" class="form-control choix" value="" placeholder="Choix 4">
+
+					<input type="text" name="numero_renvoi" class="form-control nummission" value="" placeholder="Numero de renvoi" required>
+
 
 					<div class="d-flex justify-content-center mt-3 login_container">
 						<button type="button" name="button" class="btn login_btn">Envoyer</button>
@@ -129,13 +143,7 @@
 </section>
 
 
-<script>
-	$(function() {
-		$.get('index.php', function(amembres){
-			alert(amembres);
-		});
-	});
-</script>
+
 
 <?php $content = ob_get_clean(); ?>
 

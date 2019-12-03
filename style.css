@@ -590,6 +590,9 @@ a {
 	background-color: #c0392b !important;
 }
 
+#erreur{display: none; color:red;}
+
+#ok {display: none; color: green;}
 
 			/**********************************
 						RANK

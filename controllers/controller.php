@@ -24,8 +24,22 @@ function login() {
 }
 
 function incription() {
+
+
 	require('views/inscription.php');
 }
+
+function verifPseudo($login) {
+	$membresManager = new MembresManager();
+	$membreExist = $membresManager->membreexist($login);
+
+	if (strtolower($_GET['pseudo']) == strtolower($login['login']))
+            {
+                $erreur = "Ce nom d'utilisateur est déjà utilisé.";
+            }
+
+}
+
 function homelog($id_membre) {
 	$newsManager = new NewsManager();
 	$lastNews = $newsManager->getLastNews();

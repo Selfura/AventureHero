@@ -12,6 +12,16 @@ use Aventurehero\models\NewsManager;
 use Aventurehero\models\AventuresManager;
 use Aventurehero\models\PersoManager;
 
+function menu($compteAdmin) {
+
+	$membresManager = new MembresManager();
+	$logAdmin = $membresManager->adminAcces($compteAdmin);
+
+	require('views/nav_adm.php');
+
+}
+
+
 function home() {
 	$newsManager = new NewsManager();
 	$lastNews = $newsManager->getLastNews();
@@ -33,12 +43,8 @@ function verifPseudo($login) {
 	$membresManager = new MembresManager();
 	$membreExist = $membresManager->membreexist($login);
 
-	if (strtolower($_GET['pseudo']) == strtolower($login['login']))
-            {
-                $erreur = "Ce nom d'utilisateur est déjà utilisé.";
-            }
-
-    else if ($login) {
+	
+     if ($membreExist) {
 		echo  1; // "1" est valide
 	} else {
 		echo 0;
@@ -199,13 +205,27 @@ function charcrea() {
 function adm($compteAdmin) {
 
 	$membresManager = new MembresManager();
+
+	$aventuresManager = new AventuresManager();
+	$membres = $membresManager->getMembres();		
+	$allMissions = $aventuresManager->getAllMissions();
+
 	
 	if ($logAdmin = $membresManager->adminAcces($compteAdmin)) {
+
+
 		require('views/backend/adm.php');
 	} else {
 		header('Location: index.php?action=homelog');
 	}
+
+function allMissions(){
+	$membresManager = new MembresManager();
 	
+
+	header('Location: index.php?action=adm');
+}
+
 }
 
 
@@ -309,4 +329,73 @@ function createPerso($Avatar, $Nom, $Pouvoir, $Age, $Sexe) {
 		header('Refresh:2; url= index.php?action=char_creation');
 	}
 
+}
+
+/************* PARTIE ADMIN ***************** 
+
+*************		    *******************/
+
+
+//Ajout de chapitre
+function newChap($nom, $numero, $image) {
+
+	session_start();
+	$aventuresManager = new AventuresManager();
+
+	$target = "public/images/";
+	$file = basename($_FILES['image']['name']);
+	$sizemax = 4000000;
+	$size = filesize($_FILES['image']['tmp_name']);
+	$extensions = array('.png', '.jpg', '.jpeg');
+	$extension = strrchr($_FILES['image']['name'], '.');
+	// Verif de sécurité
+	if(!in_array($extension, $extensions)) 
+	{
+		$erreur = 'Vous devez utiliser des images de type .png, .jpeg, .jpg';
+	}
+	if($size>$sizemax)
+	{
+     $erreur = 'Le fichier est trop volumineux. Utilisez des fichiers de moins de 4mo.';
+	}
+	
+    $createChap = $aventuresManager->createChap($nom, $numero, $image['name']);
+	header('Location: index.php?action=adm');
+}
+
+
+// AJOUT DE MISSION
+
+
+function newMission($chap_id, $nom, $image, $texte, $niveau) {
+
+	session_start();
+	$aventuresManager = new AventuresManager();
+
+	$target = "public/images/";
+	$file = basename($_FILES['image']['name']);
+	$sizemax = 4000000;
+	$size = filesize($_FILES['image']['tmp_name']);
+	$extensions = array('.png', '.jpg', '.jpeg');
+	$extension = strrchr($_FILES['image']['name'], '.');
+	// Verif de sécurité
+	if(!in_array($extension, $extensions)) 
+	{
+		$erreur = 'Vous devez utiliser des images de type .png, .jpeg, .jpg';
+	}
+	if($size>$sizemax)
+	{
+     $erreur = 'Le fichier est trop volumineux. Utilisez des fichiers de moins de 4mo.';
+	}
+	
+    $createMission = $aventuresManager->createMission($chap_id, $nom, $image['name'], $texte, $niveau);
+	header('Location: index.php?action=adm');
+}
+
+function newChoix($id_mission, $id_renvoi, $texte, $karma) {
+
+	session_start();
+	$aventuresManager = new AventuresManager();
+
+    $createChoix = $aventuresManager->createChoix($id_mission, $id_renvoi, $texte, $karma);
+	header('Location: index.php?action=adm');
 }

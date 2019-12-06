@@ -27,12 +27,17 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'inscriptionfini':
-
-			verifPseudo(isset($_GET['login']));	
 			newMembre($_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
 
 			 header('Location: index.php?action=accueil');
+			break;
 
+		case "verifPseudo":
+			if(!empty($_GET['pseudo'])){
+				verifPseudo($_GET['pseudo']);
+			}else {
+				echo 1;
+			}
 			break;
 
 		case 'homelog' :
@@ -141,6 +146,7 @@ if(isset($_GET['action'])) {
 		if(isset($_COOKIE['login'])) {
 			session_start();
 			adm($_SESSION['login']);
+
 		} else {
 			header('Location: index.php?action=homelog');
 		}
@@ -188,6 +194,43 @@ if(isset($_GET['action'])) {
             throw new Exception("Les champs doivent tous être remplis.");
         }
         break;
+
+        // ZONE ADMIN
+
+        case 'newChap' :// ajout de chapitre
+            if ($_POST['nom'] != NULL && $_POST['num'] != NULL) {
+            if(isset($_FILES['picture'])) {
+            newChap($_POST['nom'], $_POST['num'], $_FILES['picture']);
+            }
+        }
+        else {
+            throw new Exception("Les champs doivent tous être remplis.");
+            
+        }
+        break; 
+
+        case 'newMission' :// ajout de Mission
+            if ($_POST['chap_mission'] != NULL && $_POST['nom_mission'] != NULL && $_POST['content'] != NULL && $_POST['lvl_mission'] != NULL) {
+            if(isset($_FILES['image'])) {
+            newMission($_POST['chap_mission'], $_POST['nom_mission'], $_FILES['image'], $_POST['content'], $_POST['lvl_mission']);
+            }
+        }
+        else {
+            throw new Exception("Les champs doivent tous être remplis.");
+            
+        }
+        break;
+
+		case 'newChoix' :// ajout de Choix
+			if ($_POST['id_mission'] != NULL && $_POST['id_renvoi'] != NULL && $_POST['choix'] != NULL && $_POST['karma'] != NULL) {
+				newChoix($_POST['id_mission'], $_POST['id_renvoi'],  $_POST['choix'], $_POST['karma']);
+			}
+		else {
+			throw new Exception("Les champs doivent tous être remplis.");
+            
+        }
+        break;
+
 	}
 
 	if($_GET['action'] !== "mission" && $_GET['action'] !== "choix"){

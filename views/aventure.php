@@ -25,7 +25,7 @@
 									<p><?= $donnees['nom']; ?></p>
 								</div>
 							</div>
-						<img class="img-center img-fluid" src="<?= $donnees['image']; ?>">
+						<img class="img-center img-fluid" src="public/images/<?= $donnees['image']; ?>">
 					</div></a>
 				</div>
 				<?php

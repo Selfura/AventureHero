@@ -26,32 +26,6 @@ class AventuresManager extends Manager {
 
 		return /*$mission*/ $req;
 	}
-
-	public function getSuite() {
-		$db = $this->dbConnect();
-
-		//récupérer une suite de mission via son id.
-		$req = $db->query('SELECT id, id_chapitre, id_mission, nom, texte, choix1, choix2, choix3, choix4  FROM asuite');
-		//$req->execute(array($id_choix));
-
-		//$suite = $req->fetch();
-
-		return $req;
-	}
-
-	public function getFin() {
-		$db = $this->dbConnect();
-
-		//récupérer une suite de mission via son id.
-		$req = $db->query('SELECT id, id_chapitre, id_mission, id_suite, nom, texte, choix1, choix2, choix3, choix4  FROM afin');
-		//$req->execute(array($id_choix));
-
-		//$suite = $req->fetch();
-
-		return $req;
-	}
-
-
 	public function getChapitres() {
 		$db =$this->dbConnect();
 
@@ -83,5 +57,52 @@ class AventuresManager extends Manager {
 		return $choix;
 
 	}
+
+
+		public function getAllMissions(){
+		$db = $this->dbConnect();
+		//récupérer une mission via son id.
+
+		$req = $db->query('SELECT id, chap_id, nom, texte, niveau  FROM amissions ORDER BY id');
+	
+
+		return /*$mission*/ $req;
+	}
+
+
+// CREATION PARTIE ADMIN 
+
+
+	public function createChap($nom, $numero, $image) {
+		$db = $this->dbConnect();
+		// on crée un nouveau post
+
+		$chap = $db->prepare('INSERT INTO achapitres(nom, numero, image) VALUES (?, ?, ?)');
+		$createChap = $chap->execute(array($nom, $numero, $image));
+
+		return $createChap;
+	}
+
+
+	public function createMission($chap_id, $nom, $image, $texte, $niveau) {
+		$db = $this->dbConnect();
+		// on crée un nouveau post
+
+		$req = $db->prepare('INSERT INTO amissions(chap_id, nom, image, texte, niveau) VALUES (?, ?, ?, ?, ?)');
+		$createMission= $req->execute(array($chap_id, $nom, $image, $texte, $niveau));
+
+		return $createMission;
+	}
+
+	public function createChoix($id_mission, $id_renvoi, $texte, $karma) {
+		$db = $this->dbConnect();
+		// on crée un nouveau post
+
+		$req = $db->prepare('INSERT INTO achoix(id_mission, id_renvoi, texte, karma) VALUES (?, ?, ?, ?)');
+		$createChoix= $req->execute(array($id_mission, $id_renvoi, $texte, $karma));
+
+		return $createChoix;
+	}
+
 
 }

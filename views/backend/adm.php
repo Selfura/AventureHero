@@ -25,12 +25,12 @@
 				<h1 class="title">Creer un Nouveau Chapitre</h1>
 
 				<!-- Short introductory (optional) -->
-				<form method="POST">
-					<input type="text" name="Nom_chap" class="form-control nomchap" value="" placeholder="Nom du Chapitre" required>
-					<input class="form-control numchap" type="text" placeholder="Numero du Chapitre" name="Numero du Chapitre" required>
+				<form method="POST" action="index.php?action=newChap" enctype="multipart/form-data">
+					<input type="text" name="nom" class="form-control nomchap" value="" placeholder="Nom du Chapitre" required>
+					<input class="form-control numchap" type="text" placeholder="Numero du Chapitre" name="num" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
 					Image du Chapitre : <input type="file" name="picture" required>
-					<button type="submit" name="connexion" class="btn login_btn">Envoyer</button>
+					<button type="submit" name="Envoyer" class="btn login_btn">Envoyer</button>
 
 				</form>
 
@@ -42,20 +42,21 @@
 			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">		
 				<br>
 				<h2 class="text-center title">Nouvelles Missions</h2>
-				<form method="POST">
-					<input type="text" name="numero_mission" class="form-control nummission" value="" placeholder="Numero de la mission" required>
-					<input class="form-control nommission" type="text" placeholder="Nom de la mission" name="name_mission" required>
+
+
+				<form method="POST" action="index.php?action=newMission" enctype="multipart/form-data">
+					<input class="form-control nommission" type="text" placeholder="Nom de la mission" name="nom_mission" required>
 					<input class="form-control chapnum" type="text" placeholder="Chapitre lié à la mission" name="chap_mission" required>
-					<input class="form-control lvlmission" type="text" placeholder="Niveau de la mission" name="niveau_mission" required>
+					<input class="form-control lvlmission" type="text" placeholder="Niveau de la mission" name="lvl_mission" required>
 					<input type="hidden" name="MAX_FILE_SIZE" value="400000">
-					Image de la mission : <input type="file" name="picture" required>
+					Image de la mission : <input type="file" name="image" required>
 
 				
 					<p> Spitch de la mission </p>
-					<textarea placeholder="Entrez votre message ici..." class="form-control tinymce" rows="7" name="message" required></textarea>
+					<textarea placeholder="Entrez votre message ici..." class="form-control tinymce" rows="7" name="content"></textarea>
 
 					<div class="d-flex justify-content-center mt-3 login_container">
-						<button type="button" name="button" class="btn login_btn">Envoyer</button>
+						<button type="submit" name="button" class="btn login_btn">Envoyer</button>
 					</div>
 				</form>
 
@@ -68,16 +69,30 @@
 			<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 text-center">		
 				<br>
 				<h2 class="text-center title">Nouveaux Choix</h2>
-				<form method="POST">
-					<input type="text" name="numero_mission" class="form-control nummission" value="" placeholder="Numero de la mission" required>
+					<select name="missions">
+						<?php
+						while ($donnees = $allMissions->fetch())
+						{
+						?>		
+						
+							<option value=""><?= $donnees['id']. " : " .  $donnees['nom'];?></option>
 
-					<input type="text" name="choix1" class="form-control choix" value="" placeholder="Choix 1">
+						
+						<?php
+						} // Fin de la boucle des billets
+						$allMissions->closeCursor();
+						?>
+						</SELECT>
 
-					<input type="text" name="numero_renvoi" class="form-control nummission" value="" placeholder="Numero de renvoi" required>
-
-
+				<form method="POST" action="index.php?action=newChoix">
+					<div class="divchoix">
+						<input type="text" name="id_mission" class="form-choice nummission"  value="" placeholder="id mission" required>
+						<input type="text" name="choix" class="form-choice choix" value="" placeholder="Choix 1" required>
+						<input type="text" name="id_renvoi" class="form-choice nummission" value="" placeholder="id renvoi" required>
+						<input type="text" name="karma" class="form-choice nummission" value="" placeholder="karma" required>
+					</div>
 					<div class="d-flex justify-content-center mt-3 login_container">
-						<button type="button" name="button" class="btn login_btn">Envoyer</button>
+						<button type="submit" name="button" class="btn login_btn">Envoyer</button>
 					</div>
 				</form>
 
@@ -120,18 +135,29 @@
 		              <th>Supprimer le Membre</th>
 		            </tr>
 		          </thead>
+
+		            	<?php
+
+						while ($donnees = $membres->fetch())
+						{
+						?>	
 		          <tbody >
 		            <tr>
 
-		            	<td>Mystique/Force/Esprit/Elementaire</td>
-		            	<td>Jean Hubert Spitz</td>
+
+		            	<td><?= $donnees['login']; ?></td>
+		            	<td><?= $donnees['login']; ?></td>
 		            	<td>
 						<button type="button" name="button" class="btn login_btn">Supprimer</button>
 						</td>
 
-
 		            </tr>
 		          </tbody>
+		          
+						<?php
+						} // Fin de la boucle des billets
+						$membres->closeCursor();
+						?>
 		        </table>
 		     </div><!--end of .table-responsive-->
 

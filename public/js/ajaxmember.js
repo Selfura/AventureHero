@@ -4,17 +4,17 @@
 
       let pseudo = $('#pseudo').val();
       $.get(
-        'index.php?action=inscriptionfini',
+        'index.php?action=verifPseudo',
         {pseudo: pseudo},
         function(data){
            if(data === "1"){ 
-            $('#pseudo').next("#erreur").fadeIn().text('Pseudo Indisponible');
+            $('#ok').prev("#erreur").fadeIn().text('Pseudo Indisponible');
             $('#erreur').next('#ok').fadeOut();
             console.log("pseudo déjà pris");
           }
           else {
             $('#erreur').next('#ok').fadeIn().text('Pseudo disponible');
-            $('#pseudo').next('#erreur').fadeOut();
+            $('#ok').next('#erreur').fadeOut();
             console.log("pseudo libre");
 
           }

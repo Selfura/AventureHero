@@ -20,12 +20,18 @@ class MembresManager extends Manager {
 
 	}
 
+	public function getMembres() {
+		$db = $this->dbConnect();
+		$membres = $db->query('SELECT * FROM amembres ORDER BY login');
+
+		return $membres;
+	}
+
 	public function adminAcces($compteAdmin) {
 		$db = $this->dbConnect();
 			// On récupére les membres ayant pour rôle admin.
 
 		$req = $db->prepare('SELECT * FROM amembres WHERE login = ? AND role = 1');
-			// && foncitonne aussi mais c'est plus clair avec AND
 
 		$req->execute(array($compteAdmin));
 
@@ -47,9 +53,13 @@ class MembresManager extends Manager {
 	public function membreexist($login) {
 		$db = $this->dbConnect();
 
-		$req = $db->query('SELECT login FROM amembres WHERE login= "'. $_GET['pseudo'] .'"');
+		$req = $db->prepare('SELECT login FROM amembres WHERE login= ?');
 
-		$login = $req->fetch($login);
+		$req->execute(array($login));
+		$login = $req->fetch();
+
+
+		return $login;
 	}
 
 }

@@ -40,14 +40,15 @@
 	<body>
 
 		<?php
-		if(isset($_COOKIE['login'])) {
-			require ("views/nav_co.php");
-		} //elseif ($logAdmin === 1) {
-		//require('views/nav_adm.php');
-		//}
-		else {
-            require ("views/nav_deco.php");
-        }
+			if(isset($_COOKIE['login'])) {
+				require ("views/nav_co.php");
+			} elseif ($logAdmin['role'] === 1 ) {
+				menu();
+			}
+				else {
+        		require ("views/nav_deco.php");
+    }
+
 		?>
 		<div class="d-flex justify-content-center">
 		<a href="index.php?action=accueilback"><img src="public/images/logo.png" class="img-responsive logo img-fluid" alt="Logo Hero Aventure"></a>

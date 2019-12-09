@@ -148,7 +148,7 @@
 		            	<td><?= $donnees['login']; ?></td>
 		            	<td><?= $donnees['login']; ?></td>
 		            	<td>
-						<button type="button" name="button" class="btn login_btn">Supprimer</button>
+						<a class="btn login_btn" href="index.php?action=deleteMembre&amp;id=<?= $donnees['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce membre ?'));" >Supprimer</a>
 						</td>
 
 		            </tr>

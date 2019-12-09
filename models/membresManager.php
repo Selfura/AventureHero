@@ -62,4 +62,14 @@ class MembresManager extends Manager {
 		return $login;
 	}
 
+	public function deleteMembre($id) {
+		$db = $this->dbConnect();
+
+		$membre = $db->prepare('DELETE FROM amembres WHERE id= ?');
+		$deleteMembre = $membre->execute(array($id));
+
+		return $deleteMembre;
+		
+	}	
+
 }

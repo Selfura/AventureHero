@@ -54,7 +54,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'rank' :
-			rank(isset($_GET['id_membre']));
+			rank();
 			break;
 
 		case 'contact' :
@@ -229,6 +229,16 @@ if(isset($_GET['action'])) {
 			throw new Exception("Les champs doivent tous être remplis.");
             
         }
+        break;
+
+        case 'deleteMembre':
+	        if (isset($_GET['id']) && $_GET['id'] > 0){
+
+	            deleteMembre($_GET['id']);
+	        } 
+	        else {
+	                    throw new Exception('Aucun identifiant de membre envoyé !');
+	        }
         break;
 
 	}

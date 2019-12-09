@@ -17,7 +17,17 @@ function menu($compteAdmin) {
 	$membresManager = new MembresManager();
 	$logAdmin = $membresManager->adminAcces($compteAdmin);
 
-	require('views/nav_adm.php');
+		if(isset($_COOKIE['login'])) {
+
+			if ($logAdmin = 1) {
+				require('views/nav_adm.php');
+		} 	else {
+				require ("views/nav_co.php");
+			}
+		} else {
+        	require ("views/nav_deco.php");
+    }
+	
 
 }
 
@@ -61,12 +71,12 @@ function homelog($id_membre) {
 
 	require('views/accueilco.php');
 }
-function rank($id_membre) {
+function rank() {
 
 	$persoManager = new PersoManager();
-	$personnages = $persoManager->getPerso($id_membre);
+	$personnages = $persoManager->getPersos();
 
-	$personnages = isset($_POST['id_membre']) ? $_POST['id_membre'] : NULL;
+	//$personnages = isset($_POST['id_membre']) ? $_POST['id_membre'] : NULL;
 
 	require('views/rank.php');
 }
@@ -398,4 +408,18 @@ function newChoix($id_mission, $id_renvoi, $texte, $karma) {
 
     $createChoix = $aventuresManager->createChoix($id_mission, $id_renvoi, $texte, $karma);
 	header('Location: index.php?action=adm');
+}
+
+function deleteMembre($id) {
+
+	$membresManager = new MembresManager();
+
+	$deleteMembre = $membresManager->deleteMembre($id);
+
+	if($deleteMebre === false) {
+		throw new Exception('Impossible de supprimer le Membre');
+	}
+	else {
+		header('Location: index.php?action=adm');
+	}
 }

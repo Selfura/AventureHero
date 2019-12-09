@@ -10,7 +10,7 @@ class PersoManager extends Manager {
 
 	public function getPersos() {
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, Nom, Karma, Age, Sexe, Progression, id_membre, Avatar FROM apersonnages ORDER BY Karma DESC');
+		$req = $db->query('SELECT id, Nom, Karma, Pouvoir, Age, Sexe, Progression, id_membre, Avatar FROM apersonnages ORDER BY Karma DESC');
 		return $req;
 
 	}

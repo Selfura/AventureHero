@@ -32,7 +32,7 @@
 										<p class="text-center"><?= $donnees['nom']; ?></p>
 									</div>
 								</div>
-								<img class="img-center img-fluid" src="<?= $donnees['image']; ?>">
+								<img class="img-center img-fluid" src="public/images/boldsuperhero.jpg">
 							</div>
 						</a>
 					<?php

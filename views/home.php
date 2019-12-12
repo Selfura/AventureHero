@@ -45,7 +45,7 @@
 					<a href="index.php?action=inscription"><p class="btn login_btn">S'inscrire</p></a>
 			</div>
 		</div>
-
+				<!-- Tuto Slider  -->
 		<div class="home_tuto">
 			<p> Pour savoir comment fonctionne aventure Hero, cliquez sur Captain Tuto</p>
 		</div>
@@ -55,35 +55,35 @@
 			<div class="mySlides fade">
 				<div class="numbertext">1 / 4</div>
 				<img class="img-center img-fluid" src="public/images/heros/city-superhero-vector.jpg" onclick="plusSlides(1)" alt="image Tutoriel">
-				<div class="text">Cliquez sur Captain Tuto</div>
+				<div class="text">Cliquez sur Captain Tuto</div> <!-- Slide 1 -->
 			</div>
 
 			<div class="mySlides fade">
 				<div class="numbertext">2 / 4</div>
 				<img class="img-center img-fluid" src="public/images/tuto1.jpg" onclick="plusSlides(1)"  alt="image Tutoriel">
 				<div class="text">Inscrivez vous, puis connectez vous directement via la page d'accueil, ou via la page de connexion.</div>
-			</div>
+			</div><!-- Slide 2 -->
 
 			<div class="mySlides fade">
 				<div class="numbertext">3 / 4</div> 
 				<img class="img-center img-fluid" src="public/images/tuto2.jpg" onclick="plusSlides(1)"  alt="image Tutoriel">
-				<div class="text">Cliquez sur l'image pour commencer le prologue !</div>
+				<div class="text">Cliquez sur l'image pour commencer le prologue !</div><!-- Slide 3 -->
 			</div>
 
 			<div class="mySlides fade">
 				<div class="numbertext">4 / 4</div> 
 				<img class="img-center img-fluid" src="public/images/tuto3.jpg" onclick="plusSlides(1)"  alt="image Tutoriel">
-				<div class="text">Créez votre personnage, et voilà, vous êtes prêt pour commencer l'aventure !</div>
+				<div class="text">Créez votre personnage, et voilà, vous êtes prêt pour commencer l'aventure !</div> <!-- Slide 4 -->
 			</div>
 
-			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>		<!-- Slide suivant -->
+			<a class="next" onclick="plusSlides(1)">&#10095;</a> 		<!-- slide précédent-->
 
 		</div>
 		<br>
 
 		<div style="text-align:center">
-			<span class="dot" onclick="currentSlide(1)"></span> 
+			<span class="dot" onclick="currentSlide(1)"></span> <!-- Point en dessous du slide -->
 			<span class="dot" onclick="currentSlide(2)"></span> 
 			<span class="dot" onclick="currentSlide(3)"></span>
 			<span class="dot" onclick="currentSlide(4)"></span> 

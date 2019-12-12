@@ -32,6 +32,12 @@ h1, h2, h3, h4 {
 }
 
 
+      /**********************************
+            Factorisation
+      ************************************/
+
+      
+
 
 			/**********************************
 						NAVIGATION
@@ -679,6 +685,9 @@ a {
 }
 .img_chap .portfolio-item-caption:hover {
 	opacity: 1;
+}
+.border-img {
+  border-radius: 0.5rem;
 }
 
 .selec-chap {

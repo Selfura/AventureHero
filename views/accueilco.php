@@ -12,7 +12,7 @@
 				<div class="home_tuto">
 					
 					
-					<?php 
+					<?php // si le personnage est créé. Le membre continue l'aventure. Sinon, prologue et création de perso.
 						$charIsCreated = $char['id_membre'];
 
 						if($charIsCreated) {
@@ -53,7 +53,7 @@
 
 				
 				</div>
-
+				<!-- Synopsis -->
 				<h2 class="text-center"> Synopsis </h1>
 				<p> Après la découverte secrète du gouvernement chinois d'un sérum capable de créer des surhommes au sein de son armée, il ne restait plus qu'à effectuer une phase de test afin d'avoir quelques sujets à examiner. Toutefois, tout ne se passa pas comme prévu. A la veille de tests de plus grande ampleur, la substance disparue.<br><br>
 

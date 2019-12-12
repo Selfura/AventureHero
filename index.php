@@ -5,7 +5,7 @@ require('controllers/controller.php');
 
 
 
-//try {
+try {
 if(isset($_GET['action'])) {
 
 	switch ($_GET['action']) {
@@ -64,19 +64,19 @@ if(isset($_GET['action'])) {
 		case 'aventure' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
-			aventure();
+			missions($_SESSION['id']);
 		} else {
             header('Location: index.php?action=accueil');
         }
 			break;
-		case 'missions' :
+		/*case 'missions' :
 		if(isset($_COOKIE['login'])) {
 			session_start();
 			missions();
 		} else {
             header('Location: index.php?action=accueil');
         }
-			break;
+			break;*/
 
 		case 'mission' :
 		
@@ -253,9 +253,9 @@ if(isset($_GET['action'])) {
 else{
 		home();
 	}
-/*}
+}
 catch(Exception $e) {
 
     echo 'Erreur : ' . $e->getMessage();
     header('Location= index.php?action=accueil');
-}*/
+}

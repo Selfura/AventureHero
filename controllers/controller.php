@@ -21,7 +21,7 @@ function menu($compteAdmin) {
 
 			if ($logAdmin = 1) {
 				require('views/nav_adm.php');
-		} 	else {
+			} 	else {
 				require ("views/nav_co.php");
 			}
 		} else {
@@ -83,16 +83,26 @@ function rank() {
 function contact() {
 	require('views/contact.php');
 }
-function aventure() {
+/*function aventure() {
 	$aventuresManager = new AventuresManager();
 	$chapitres = $aventuresManager->getChapitres();
 
 	require('views/aventure.php');
-}
-function missions() {
+}*/
+function missions($id_membre) {
 	$aventuresManager = new AventuresManager();
 	$missions = $aventuresManager->getMissions();
-	require('views/missions.php');
+
+	$persoManager = new PersoManager();
+	$char = $persoManager->getPerso($id_membre);
+
+	$charIsCreated = $char['id_membre'];
+
+		if($charIsCreated) {
+			require('views/aventure.php');
+	} else {
+		header('Location: index.php?action=prologue');
+	}
 }
 function aide() {
 	require('views/aide.php');

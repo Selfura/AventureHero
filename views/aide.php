@@ -13,7 +13,7 @@
 		<div class="home_tuto">
 			<p> Pour savoir comment fonctionne aventure Hero, cliquez sur Captain Tuto</p>
 		</div>
-
+		<!-- Tuto en slider -->
 		<div class="slideshow-container">
 
 			<div class="mySlides fade">

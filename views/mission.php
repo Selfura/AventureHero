@@ -19,6 +19,7 @@
 				<h1 class="text-center"><?= $mission['nom']; ?></h1>
 				<p><?= $mission['texte']; ?> </p>
 			</div>
+			<!-- Reprendre les actions possibles via la mission (précédent, retour), pour permettre d'annuler ou confirmer le karma gagné/perdu. Eviter aux membres d'avoir plus de karma que permis par les missions -->
 			<?php
 
 					while ($donnees = $choix->fetch())

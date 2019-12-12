@@ -8,17 +8,31 @@
         {pseudo: pseudo},
         function(data){
            if(data === "1"){ 
-            $('#ok').prev("#erreur").fadeIn().text('Pseudo Indisponible');
+            $('#pseudo').next("#erreur").fadeIn().text('✘');
             $('#erreur').next('#ok').fadeOut();
             console.log("pseudo déjà pris");
+           
           }
           else {
-            $('#erreur').next('#ok').fadeIn().text('Pseudo disponible');
-            $('#ok').next('#erreur').fadeOut();
+            $('#erreur').next('#ok').fadeIn().text('✓');
+            $('#pseudo').next('#erreur').fadeOut();
             console.log("pseudo libre");
-
           }
         }
       );
     });
   });
+
+
+
+
+/*$(function(){
+let erreur = $('#erreur').text();
+let signin = $('#signin');
+    if (!($('#erreur').text(""))) {
+       $('#signin').prop("disabled", true);
+    } else {
+      $('#signin').prop("disabled", false);
+    }
+
+});*/

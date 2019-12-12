@@ -18,7 +18,7 @@
 		<meta property="og:title" content=""/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:url" content="http://yoank.fr/"/>
-		<meta property="og:image" content="images/....jpg"/>
+		<meta property="og:image" content="public/images/heros/blip.jpg"/>
 		<meta property="og:description" content=""/>
 		<!-- Twitter Card data -->
 		<meta name="twitter:card" content="summary">
@@ -26,10 +26,10 @@
 		<meta name="twitter:title" content="">
 		<meta name="twitter:description" content="">
 		<!-- Twitter Summary card images must be at least 200x200px -->
-		<meta name="twitter:image" content="images/....jpg">
+		<meta name="twitter:image" content="public/images/heros/blip.jpg">
 
 		<!-- Favicons -->
-		<link rel="shortcut icon" href="images/....jpg">
+		<link rel="shortcut icon" href="public/images/heros/blip.jpg">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">

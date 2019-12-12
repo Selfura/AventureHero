@@ -19,12 +19,12 @@ class AventuresManager extends Manager {
 		$db = $this->dbConnect();
 		//récupérer une mission via son id.
 
-		$req = $db->query('SELECT id, chap_id, nom, image, texte, niveau  FROM amissions WHERE niveau = 1');
-		//$req->execute(array($id_mission));
+		$req = $db->prepare('SELECT id, chap_id, nom, image, texte, niveau  FROM amissions WHERE niveau = 1');
+		$req->execute(array());
 
-		//$mission = $req->fetch();
+		$missions = $req->fetch();
 
-		return /*$mission*/ $req;
+		return $missions;
 	}
 	public function getChapitres() {
 		$db =$this->dbConnect();

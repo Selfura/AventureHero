@@ -35,8 +35,15 @@ h1, h2, h3, h4 {
       /**********************************
             Factorisation
       ************************************/
-
-      
+.home_card, .news_co, .slider-nav, .divchoix, .user_card, .aventure, .chapitres, .missions, .block_mission, .flexchar, .flex-wrap-radio, .tab-group {
+  display: flex;
+}
+.logo, .home_card, .user_card, .aventure, .block_mission {
+  justify-content: center;
+}
+.navbar-toggle, .slideshow-container, .user_card, .img_chap, .img_mission {
+  position: relative;
+}    
 
 
 			/**********************************
@@ -49,7 +56,6 @@ h1, h2, h3, h4 {
 }
 
 .navbar-toggle {
-	position:relative;
 	cursor: pointer;
 	float:left;
 	display:block;
@@ -129,25 +135,17 @@ h1, h2, h3, h4 {
 						ACCUEIL
 			************************************/
 
-.logo {
-	justify-content: center;
-}
-
 .home_card {
-	display: flex;
 	background: #f39c12;
 	margin: auto;
 	margin-top: 4.2em; 
 	flex-direction: column;
-	justify-content: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 5px;
 }
-.news_co {
-	display: flex;
-}
+
 .login_container {
 	margin: 1em 0 1em 0;
 }
@@ -192,7 +190,6 @@ img {vertical-align: middle;}
 .slideshow-container {
   cursor: pointer;
   max-width: 1000px;
-  position: relative;
   margin: auto;
 }
 
@@ -364,9 +361,6 @@ a {
 
 
 /*social*/
-.slider-nav{
-    display: flex;
-}
 
 .process-scetion .slider-nav-item {
     flex-grow: 0;
@@ -549,12 +543,9 @@ a {
 	min-height: 400px;
 	width: 350px;
 	background: #f39c12;
-	position: relative;
 	top: 0;
   	bottom: 0;
 	margin: auto;
-	display: flex;
-	justify-content: center;
 	flex-direction: column;
 	padding: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -596,9 +587,9 @@ a {
 	background-color: #c0392b !important;
 }
 
-#erreur{display: none; color:red;}
+#erreur, #error{display: none; color:red;}
 
-#ok {display: none; color: green;}
+#ok, #okay {display: none; color: green;}
 
 			/**********************************
 						RANK
@@ -640,8 +631,6 @@ a {
 			************************************/
 .aventure {
 	width: 80%;
-	display: flex;
-	justify-content: center;
 	flex-direction: column;
 }
 
@@ -654,14 +643,12 @@ a {
 
 .chapitres {
 	width: 100%;
-	display: flex;
 	justify-content: space-around;
 	margin: 3em 0 3em 0;
 
 }
 .img_chap {
 	cursor: pointer;
-	position: relative;
 	display: block;
 	border-radius: 0.5rem;
 	overflow: hidden;
@@ -734,7 +721,6 @@ a {
 
 .img_mission {
 	cursor: pointer;
-	position: relative;
 	display: block;
 	border-radius: 0.5rem;
 	overflow: hidden;
@@ -742,7 +728,6 @@ a {
 	margin-top: 1.5em;
 }
 .missions {
-	display: flex;
 	justify-content: space-around;
 	width: 100%;
 }
@@ -763,13 +748,11 @@ a {
 }
 
 .block_mission {
-  display: flex;
   background: #f39c12;
   margin: auto;
   margin-top: 1em;
   padding: 0 2em 1em 2em;
   flex-direction: column;
-  justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -790,18 +773,13 @@ a {
   width: 100%;
 }
 @media (max-width: 420px){
-  .chapitre {
-    justify-content: center;
-  }
-  .img_mission {
+  .chapitre, .img_mission,  .missions, .missions_choice{
     justify-content: center;
   }
   .missions {
     flex-direction: column;
-    justify-content: center;
   }
   .missions_choice {
-    justify-content: center;
     text-align: center;
   }
 }
@@ -834,12 +812,7 @@ a {
 
     /* Creation perso */
 
-.flexchar {
-  display: flex;
-}
-
 .flex-wrap-radio {
-  display: flex;
   flex-wrap: wrap;
 }
 
@@ -896,7 +869,6 @@ a {
 
 
 .tab-group {
-  display: flex;
   justify-content: space-around;
   list-style: none;
 }
@@ -919,7 +891,6 @@ a {
 
 .divchoix {
   width: 100%;
-  display: flex;
 }
 
 .choix {

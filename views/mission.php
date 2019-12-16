@@ -12,7 +12,7 @@
 							<p>Mission 1</p>
 						</div>
 					</div>
-					<img class="img-center img-fluid" src="<?= $mission['image']; ?>" alt="image mission">
+					<img class="img-center img-fluid" src="public/images/<?= $mission['image']; ?>" alt="image mission">
 				</div>
 			</div>
 			<div class="block_mission">

@@ -37,7 +37,12 @@
 
 			<div class="col-md-12 col-lg-12 char_char">
 				<div>
-					<p class="d-flex BD-nom"><input type="text" name="Nom" class="form-control input_user" placeholder="Nom" required></p>
+					<p class="d-flex BD-nom">
+						<input type="text" id="Nom_perso" name="Nom" class="form-control input_user" placeholder="Nom" required>
+						<span id="error"></span>
+		              	<span id="okay"></span>
+					</p>
+						
 				</div>
 				<p class="d-flex BD-nom">
 					<label>Pouvoir</label>
@@ -59,7 +64,7 @@
 					</select>
 				</p>
 			</div>
-			<a class="cent" href="index.php?action=accueil"><button type="submit" name="Envoyer" class="btn login_btn">Créer le personnage</button></a>
+			<a class="cent" href="index.php?action=accueil"><button type="submit" id="send" name="Envoyer" class="btn login_btn">Créer le personnage</button></a>
 		<form>
 		<p id="caution">Attention, une fois le personnage créé, ces informations ne peuvent être changées.</p>
 	</div>
@@ -68,3 +73,5 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php require('views/template.php'); ?>
+
+<script src="public/js/ajaxperso.js"></script>

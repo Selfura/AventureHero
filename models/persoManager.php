@@ -93,4 +93,17 @@ class PersoManager extends Manager {
 		return $updateKarma;
 	}
 
+
+
+	public function persoexist($nom) {
+		$db = $this->dbConnect();
+
+		$req = $db->prepare('SELECT Nom FROM apersonnages WHERE Nom= ?');
+
+		$req->execute(array($nom));
+		$nom = $req->fetch();
+
+
+		return $nom;
+	}
 }

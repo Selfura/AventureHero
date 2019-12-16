@@ -27,7 +27,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'inscriptionfini':
-			newMembre($_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
+			newMembre($_POST['login'], $_POST['password'], $_POST['mail']);
 
 			 header('Location: index.php?action=accueil');
 			break;
@@ -35,6 +35,14 @@ if(isset($_GET['action'])) {
 		case "verifPseudo":
 			if(!empty($_GET['pseudo'])){
 				verifPseudo($_GET['pseudo']);
+			}else {
+				echo 1;
+			}
+			break;
+
+		case "verifNom":
+			if(!empty($_GET['Nom_perso'])){
+				persoexist($_GET['Nom_perso']);
 			}else {
 				echo 1;
 			}

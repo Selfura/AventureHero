@@ -52,7 +52,7 @@
 		</div>
 		</section>
 
-<script src="public/js/disabled.js"></script>
+<!--<script src="public/js/disabled.js"></script>-->
 <script src="public/js/ajaxmember.js"></script>
 
 <?php $content = ob_get_clean(); ?>

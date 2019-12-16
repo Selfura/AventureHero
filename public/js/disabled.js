@@ -1,10 +1,12 @@
 $(function(){
 let erreur = $('#erreur');
 let signin = $('#signin');
-    if (erreur.css("display", "inline")) {
+    if ($('#erreur:contains("✘")') && $('#ok:contains("")')) {
     	signin.prop("disabled", true);
-    } else {
+    	console.log('Impossible de Choisir ce pseudo');
+    } if ($('#ok:contains("✓")') && $('#erreur:contains("")') ) {
     	signin.prop("disabled", false);
+    	console.log('Pseudo Ok');
     }
 
 });

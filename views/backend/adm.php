@@ -111,7 +111,7 @@
 				<div class="col-sm-12">  
 					<form method="POST" action="index.php?action=newNews">  
 						<input type="text" name="titre" class="form-control titleannonce" value="" placeholder="Titre de l'annonce" required>
-						<textarea placeholder="Entrez la News ici..." class="form-control tinymce titleannonce" rows="7" name="annonce" required></textarea>
+						<textarea placeholder="Entrez la News ici..." class="form-control tinymce titleannonce" rows="7" name="annonce"></textarea>
 						<div class="d-flex justify-content-center mt-3 login_container">
 							<button type="submit" class="btn login_btn">Envoyer</button>
 						</div>

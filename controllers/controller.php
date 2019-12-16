@@ -62,6 +62,17 @@ function verifPseudo($login) {
 
 }
 
+function persoexist($nom) {
+	$persoManager = new PersoManager();
+	$nom = $persoManager->persoexist($nom);
+
+	if ($nom){
+		echo 1;
+	} else {
+		echo 0;
+	}
+}
+
 function homelog($id_membre) {
 	$newsManager = new NewsManager();
 	$lastNews = $newsManager->getLastNews();

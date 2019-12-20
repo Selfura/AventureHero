@@ -27,7 +27,7 @@ if(isset($_GET['action'])) {
 			break;
 
 		case 'inscriptionfini':
-			newMembre($_POST['login'], $_POST['password'], $_POST['mail']);
+			newMembre($_POST['login'], PASSWORD_HASH($_POST['password'], PASSWORD_DEFAULT), $_POST['mail']);
 
 			 header('Location: index.php?action=accueil');
 			break;
@@ -165,9 +165,9 @@ if(isset($_GET['action'])) {
             session_start();
             connect($_POST['login']);
         }
-        else {
-            header('Location: index.php?action=login');
-        }
+      /*  else {
+            header('Location: http://yoank.fr/heroaventure/index.php?action=login');
+        }*/
         break;
 
 

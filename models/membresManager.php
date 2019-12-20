@@ -45,7 +45,7 @@ class MembresManager extends Manager {
 
 		$req = $db->prepare('INSERT INTO amembres(login, password, validation, mail) VALUES (?, ?, 1, ?)');
 
-		$newMembre = $req->execute(array($login, PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT), $mail));
+		$newMembre = $req->execute(array($login, $password, $mail));
 
 		return $newMembre;
 	}

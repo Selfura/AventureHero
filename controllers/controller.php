@@ -284,13 +284,17 @@ function connect($login)
 
 			header('Location: index.php?action=homelog');
 		} else {
-		echo"<script type='text/javascript'> alert('Mot de passe ou Identifiant erroné(s).');</script>";
-		header('Refresh: 0; url= index.php?action=login');
+		//header('Location: index.php?action=login');
+		echo"<script type='text/javascript'> alert('Mot de passe ou Identifiant erroné(s).');
+											window.location.replace('index.php?action=login');
+		</script>";
 	}
 	} 
 	else {
-		echo"<script> alert('Mot de passe ou Identifiant erroné(s).');</script>";
-		header('Refresh: 0; url= index.php?action=login');
+		//header('Location: index.php?action=login');
+		echo"<script type='text/javascript'> alert('Mot de passe ou Identifiant erroné(s).');
+											window.location.replace('index.php?action=login');
+		</script>";
 	}
 }
 

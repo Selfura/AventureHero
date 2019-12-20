@@ -11,7 +11,7 @@
 					<a href="index.php?action=mission&amp;id=<?= $missions['id'] ?>">
 						<div class="text-center img_chap">		
 							<h2 class="text-center selec-chap img-fluid">Cliquez pour continuer</h2>				
-							<img class="img-center img-fluid border-img" src="public/images/boldsuperhero.jpg">
+							<img class="img-center img-fluid border-img" src="public/images/aventure.jpg">
 						</div>
 					</a>
 				</div>
